@@ -12,6 +12,33 @@
 <body>
   <header>
     <!-- Links to Summary and Each Month, div with 'Green Orchard' and cool photo -->
+    <div class="header-left">
+      <div class="logo">
+        <span>Green Orchard</span>
+        <!-- image that goes with Green Orchard -->
+      </div>
+      {% if user is logged in (change this later) %}
+        <span>{{ name of user }}</span>
+        <a href="{{ logout route here }}">Logout</a>
+      {% endif %}
+    </div>
+    <div class="header-right">
+      <!-- Figure out dropdown lists for those that need to expand -->
+      <a href="{{ summary route here }}">Summary</a>
+      <span>Months (down arrow)</span>
+      <ul class="month-dropdown dropdown">
+        {% for months in months (change later) %}
+          <li><a href="{{ ind. month route here }}">{{ month }}</a></li>
+        {% endfor %}
+      </ul>
+      <a href="{{ category route here }}">Categories</a>
+      <span>Other (down arrow)</span>
+      <ul class="other-dropdown dropdown">
+        <li><a href="{{ about-us page here }}">The Developers</a></li>
+        <li><a href="{{ budgeting page (disabled)}}">Personal Budget</a></li>
+        <li><a href="{{ loan tracker page (disabled)}}">Loan Tracker</a></li>
+      </ul>
+    </div>
   </header>
   {% block content %}{% endblock %}
   <footer>
