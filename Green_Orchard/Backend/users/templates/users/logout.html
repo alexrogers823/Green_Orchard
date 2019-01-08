@@ -1,0 +1,10 @@
+{% extends "general/base.html" %}
+
+{% block content %}
+  <h2>You have been logged out</h2>
+  <p>Redirecting in 3...2...1.. (change this)</p>
+  <div class="login">
+    <p class="text--center"><a href="{% url 'login' %}">Login</a></p>
+  </div>
+
+{% endblock % }
