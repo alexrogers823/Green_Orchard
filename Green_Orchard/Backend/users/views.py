@@ -15,6 +15,7 @@ def login(request):
     context = {
         'css_file': 'users/stylelogin.css',
     }
+    
     return render(request, 'users/login.html', context)
 
 def register(request):
