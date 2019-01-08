@@ -13,8 +13,25 @@
             <input type="submit" value="Sign In">
         </p>
         <!-- TODO send to signup page -->
-        <p class="text--center">Not a member? <a href="{% url 'register' %}">Sign up now</a>
+        <p class="text--center">Not a member? <a href="{% url 'register' %}">Sign up now</a></p>
     </form>
 </div>
 
 {% endblock %}
+
+<!-- Above equivalent with Django magic -->
+ 
+<!-- <div class="login">
+  <form method="POST">
+    {% csrf_token %}
+    <fieldset>
+      <legend class="login-header">Log in</legend>
+      {{ form.as_p }}
+    </fieldset>
+    <div>
+      <button type="submit">Sign In</button>
+    </div>
+
+  </form>
+  <p class="text--center">Not a member? <a href="{% url 'register' %}">Sign up now</a></p>
+</div> -->
