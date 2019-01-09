@@ -123,7 +123,7 @@ header {
     max-height: 3em;
   }
   .dropDown-content a {
-    
+    margin: 1em;
     color: black;
     font-size: 10px;
     padding: 1px 1px;
@@ -134,7 +134,9 @@ header {
   .username a{
     color: #16ca16
   }
-  
+  .dropDown-content a:hover{
+    cursor: pointer;
+  }
 
   .dropDown-content a:hover {background-color: #ddd;}
   .Months:hover .dropDown-content {display: block;}
