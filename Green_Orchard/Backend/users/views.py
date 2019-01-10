@@ -6,9 +6,12 @@ from django.contrib.auth import (
     logout as user_logout )
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm
 
 # Create your views here.
+
+@login_required
 def index(request):
     context = {
         'name': 'Alex Rogers',
@@ -59,6 +62,7 @@ def register(request):
     # return render(request, 'users/dummy.html')
     return render(request, 'users/register.html', context)
 
+@login_required
 def edit_profile(request):
     context = {
         'css_file': 'users/edit_profile.css',
