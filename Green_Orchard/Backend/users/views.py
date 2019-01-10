@@ -2,12 +2,16 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import (
     authenticate,
-    login as user_login )
+    login as user_login,
+    logout as user_logout )
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm
 
 # Create your views here.
+
+@login_required
 def index(request):
     context = {
         'name': 'Alex Rogers',
@@ -36,6 +40,10 @@ def login(request):
 
     return render(request, 'users/login.html', context)
 
+def logout(request):
+    user_logout(request)
+    return redirect('login')
+
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
@@ -54,6 +62,7 @@ def register(request):
     # return render(request, 'users/dummy.html')
     return render(request, 'users/register.html', context)
 
+@login_required
 def edit_profile(request):
     context = {
         'css_file': 'users/edit_profile.css',
