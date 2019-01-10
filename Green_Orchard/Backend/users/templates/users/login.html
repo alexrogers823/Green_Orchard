@@ -2,7 +2,7 @@
 
 {% block content %}
 
-  <div class="login">
+  <!-- <div class="login">
 
       <h1 class="login-header">Login</h1>
 
@@ -14,11 +14,11 @@
           </p>
           <p class="text--center">Not a member? <a href="{% url 'register' %}">Sign up now</a></p>
       </form>
-  </div>
+  </div> -->
 
   <!-- Above equivalent with Django magic -->
 
-  <!-- <div class="login">
+  <div class="login">
   <form method="POST">
   {% csrf_token %}
   <fieldset>
@@ -31,5 +31,5 @@
 
 </form>
 <p class="text--center">Not a member? <a href="{% url 'register' %}">Sign up now</a></p>
-</div> -->
+</div>
 {% endblock %}
