@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import MonthPieChart from './PieChart.js';
-import Summary from './Summary'
-
+import Summary from './Summary';
+import Category from './Category';
 
 class App extends Component {
     constructor(props) {

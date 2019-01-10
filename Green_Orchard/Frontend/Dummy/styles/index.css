@@ -2,6 +2,9 @@ body {
     font-family: 'Dosis', sans-serif;
     background-image: url("https://images.pexels.com/photos/240040/pexels-photo-240040.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: black;
 }
 
 .SiteName {
@@ -13,7 +16,7 @@ body {
 .LoginBox {
     position: absolute;
     top: 1rem;
-    right: 1rem;
+    right: 2rem;
     padding: 1%;
     border: 2px outset #16ca16;
     background-color: rgb(207, 231, 139);
@@ -37,6 +40,7 @@ body {
 
 .AboutGreenOrchard {
     border: 2px outset #16ca16;
+    font-size: 125%;
     width: 25rem;
     padding: 1%;
     text-shadow: 1px 1px 1px white;
@@ -47,16 +51,24 @@ body {
 }
 
 .Quotes {
+    /* float: left; */
     border: 2px outset #16ca16;
+    font-size: 125%;
     width: 20rem;
+    text-align: center;
     padding: 1%;
     text-shadow: 1px 1px 1px white;
     background-color: rgb(207, 231, 139);
-    margin-left: 1%;
-
+    /* margin-left: 40%; */
+    margin: auto;
+    opacity: .8;
 }
 
 .GrowYourOrchard {
+    /* position: absolute; */
+    bottom: 1rem;
+    /* margin-left: 35%; */
+    margin: auto;
     font-size: 150%;
     text-align: center;
 }
