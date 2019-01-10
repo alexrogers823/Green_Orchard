@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import (
     authenticate,
-    login as user_login )
+    login as user_login,
+    logout as user_logout )
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from .forms import UserRegisterForm
@@ -35,6 +36,10 @@ def login(request):
     }
 
     return render(request, 'users/login.html', context)
+
+def logout(request):
+    user_logout(request)
+    return redirect('login')
 
 def register(request):
     if request.method == 'POST':
