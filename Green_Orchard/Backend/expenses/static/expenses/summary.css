@@ -75,10 +75,11 @@ body {
     text-decoration: none;
     color: white;
 }
-.News li {
+.News ul {
     margin: 1em;
     text-decoration: none;
 }
+
 .instructions  li{
     margin: 1em;
 }

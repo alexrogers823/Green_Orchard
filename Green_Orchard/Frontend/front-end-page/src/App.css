@@ -1,32 +1,106 @@
-.App {
-  text-align: center;
+body {
+  /* display: flex; */
+  justify-content: space-around;
+  font-family: 'Dosis', sans-serif;
+  background: url(https://images.pexels.com/photos/1632790/pexels-photo-1632790.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+
+
+.WelcomeBack {
+  color: white;
+  border-bottom: 1px solid black;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Top5 {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-around;
+}
+
+.all {
+  /* justify-content: flex-start; */
+  border: 5px inset #16ca16;
+  text-decoration: none;
+  color: white;
+  background-color: black;
+  opacity: .86;
+  max-height: 30em; 
+  width: 28%;
+  font-size: 6px;
+  text-align: center;
+  font-size: 1em;
+  border: 5px inset #16ca16;
+  text-decoration: none;
+  color:white;
+  overflow: scroll;
+}
+
+.all li {
+  margin-right: 1em;
+}
+
+.grouped {
+  /* justify-content: center; */
+  text-align: center;
+  border: 1px solid black;
+  max-height: 36em; 
+  margin: 1em;
+  width: 0em;
+  box-sizing: border-box;
+  display: block;
+  width: 26%;
+  border-width: 0.1em;
+  border-style: solid;
+  outline: 0;
+  background-image: url("https://www.justinchanrepresents.com/img/photos/5784930a7dce2.gif");
+  border: 5px inset #16ca16;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.grouped h1 {
+  margin-top: 4em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.News {
+  /* justify-content: flex-end; */
+  text-align: center;
+  background-color: black;
+  opacity: .86;
+  max-height: 30em; 
+  width: 28%;
+  font-size: 6px;
+  text-align: center;
+  font-size: 1em;
+  border: 5px inset #16ca16;
+  text-decoration: none;
+  color:white;
+  /* text-shadow: 4px 2px 4px black; */
+  overflow: scroll;
+  list-style: none;
 }
+
+.News p {
+  color: #16ca16;
+  margin-right: 5em;
+  font-size: 9px;
+  text-decoration: none;
+  border: 3px #16ca16;
+  text-align: center;
+
+}
+
+.News a {
+  text-decoration: none;
+  color: white;
+  list-style: none;
+  text-align: center;
+  
+}
+.News a:hover{
+  color: #16ca16;
+}
+.News ul
+{
+  text-decoration: none;
+}
+
