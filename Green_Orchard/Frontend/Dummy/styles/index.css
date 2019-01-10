@@ -53,7 +53,7 @@ body {
     text-shadow: 1px 1px 1px white;
     background-color: rgb(207, 231, 139);
     margin-left: 1%;
-
+    opacity: .8;
 }
 
 .GrowYourOrchard {
