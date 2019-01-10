@@ -63,4 +63,6 @@ class MonthPieChart extends Component {
     }
 }
 
+// Include button component for pagination (forward and backward)
+
 export default MonthPieChart;

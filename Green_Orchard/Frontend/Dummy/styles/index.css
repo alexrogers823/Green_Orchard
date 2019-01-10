@@ -1,11 +1,80 @@
 body {
     font-family: 'Dosis', sans-serif;
-    /* display: flex; */
-    justify-content: space-around;
+    background-image: url("https://images.pexels.com/photos/240040/pexels-photo-240040.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    background-attachment: fixed;
 }
 
-.Header {
-    border-bottom: 1px solid black;
+.SiteName {
+    text-align: center;
+    font-size: 250%;
+    text-shadow: 3px 3px 3px white;
 }
+
+.LoginBox {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 1%;
+    border: 2px outset #16ca16;
+    background-color: rgb(207, 231, 139);
+    width: 20rem;
+    text-align: center;
+    opacity: .88;
+}
+
+.LoginBox h3 {
+    font-size: 120%;
+}
+
+.LoginInputs {
+    display: flex;
+    align-items: center;
+}
+
+.LoginInputs a:visited {
+    color: black;
+}
+
+.AboutGreenOrchard {
+    border: 2px outset #16ca16;
+    width: 25rem;
+    padding: 1%;
+    text-shadow: 1px 1px 1px white;
+    background-color: rgb(207, 231, 139);
+    margin: auto;
+    text-align: center;
+    opacity: .8;
+}
+
+.Quotes {
+    border: 2px outset #16ca16;
+    width: 20rem;
+    padding: 1%;
+    text-shadow: 1px 1px 1px white;
+    background-color: rgb(207, 231, 139);
+    margin-left: 1%;
+
+}
+
+.GrowYourOrchard {
+    font-size: 150%;
+    text-align: center;
+}
+
+.GrowYourOrchard h2 {
+    text-shadow: 1px 1px 1px white;
+}
+
+h2 a {
+    color: #16ca16;
+    text-shadow: 2px 2px 2px black;
+}
+
+h2 a:hover {
+    color: black;
+    text-shadow: 2px 2px 2px #16ca16;
+}
+
+
 
 
