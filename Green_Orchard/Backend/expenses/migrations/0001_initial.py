@@ -35,7 +35,7 @@ class Migration(migrations.Migration):
                 ('date_posted', models.DateTimeField(default=django.utils.timezone.now)),
                 ('last_updated', models.DateTimeField(auto_now=True)),
                 ('bank_id', models.ForeignKey(null=True, on_delete=django.db.models.deletion.SET_NULL, to='expenses.Banks')),
-                ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('user_id', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
 
             ],
         ),
