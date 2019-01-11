@@ -8,6 +8,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm
+from mysite.csv_import import upload_files
 
 # Create your views here.
 
@@ -71,3 +72,18 @@ def edit_profile(request):
     }
     # return render(request, 'users/dummy.html')
     return render(request, 'users/edit_profile.html', context)
+
+@login_required
+def upload(request):
+    context = {
+        'css_file': 'users/styleUpload.css',
+    }
+
+    return render(request, 'users/upload.html', context)
+
+@login_required
+def run_csv_upload(request):
+    the_user = request.user.pk
+    print(the_user)
+    upload_files(['Discover'], the_user)
+    return redirect('expenses:expense-summary')
