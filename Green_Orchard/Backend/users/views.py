@@ -17,6 +17,7 @@ def index(request):
         'name': 'Alex Rogers',
         'banks': ['Wells Fargo', 'Discover', 'Capital One', 'Bank of America']
     }
+
     return render(request, 'users/user_profile.html', context)
     # return render(request, 'users/dummy.html')
 
@@ -66,6 +67,7 @@ def register(request):
 def edit_profile(request):
     context = {
         'css_file': 'users/edit_profile.css',
+        'banks': ['Wells Fargo', 'Discover', 'Capital One', 'Bank of America']
     }
-    return render(request, 'users/dummy.html')
-    # return render(request, 'users/edit_profile.html', context)
+    # return render(request, 'users/dummy.html')
+    return render(request, 'users/edit_profile.html', context)
