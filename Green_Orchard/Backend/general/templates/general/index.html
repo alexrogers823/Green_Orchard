@@ -34,13 +34,11 @@
 
 <br><br>
 
-<div class="Quotes">
-    <h4>"Green Orchard helped me keep track of my funds like never before. The site makes it easy to visualize where my money is going. Give it a try!" - Barack Obama</h4>
-</div>
-
-<div class="Quotes">
-    <h4>"I love Green Orchard!" - Kylie Jenner</h4>
-</div>
+{% for quote in quotes %}
+  <div class="Quotes">
+    <h4>{{ quote }}</h4>
+  </div>
+{% endfor %}
 
 <br><br>
 
