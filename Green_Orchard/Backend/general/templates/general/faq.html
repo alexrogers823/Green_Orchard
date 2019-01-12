@@ -10,24 +10,14 @@
   <nav class="QuestionNav">
     <ul> |
       {% for topic in faq_content.keys %}
-      <li><a href="#{{ topic }}">{{ topic }}</a></li> |
+        <li><a href="#{{ topic }}">{{ topic }}</a></li> |
       {% endfor %}
     </ul>
   </nav>
 
 
-    <!-- <ul>
-      <li><a href="#General">General</a></li> |
-      <li><a href="#Expenses">Expenses</a></li> |
-      <li><a href="#Budget">Budget</a></li> |
-      <li><a href="#LoanTracker">Loan Tracker</a></li> |
-      <li><a href="#Profile">Profile</a></li> |
-      <li><a href="#Banks">Banks</a></li>
-    </ul>
-  </nav> -->
-
   {% for topic, value in faq_content.items %}
-    <h3 class="QuestionCategory" id="General">{{ topic }}</h3>
+    <h3 class="QuestionCategory" id="{{ topic }}">{{ topic }}</h3>
     {% for inquiry in value %}
       <h4>{{ inquiry.Question }}</h4>
       <p>{{ inquiry.Answer }}</p>
