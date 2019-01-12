@@ -5,6 +5,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.views.generic import (
     ListView, DetailView, CreateView, UpdateView, DeleteView)
+from django.db.models import Sum
 from .models import Expenses
 from mysite import csv_import
 # from django.template import loader
@@ -31,8 +32,10 @@ def month(request):
         # 'css_file': 'expenses/month.css',
         'month': choice(month_names),
         # 'expenses': ['Stats Class', 'Rent', 'Clothing'],
-        'expenses': Expenses.objects.all(),
-        'total': randint(100, 1000),
+        'expenses': Expenses.objects.all().order_by('date_posted'),
+        'highest_expenses': Expenses.objects.all().order_by('-amount')[:3],
+        # 'total': randint(100, 1000),
+        'total': Expenses.objects.aggregate(Sum('amount')),
     }
     return render(request, 'expenses/month.html', context)
 

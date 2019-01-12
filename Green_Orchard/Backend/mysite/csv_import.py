@@ -1,11 +1,12 @@
 import csv, os, shutil
 from pathlib import Path
-from expenses.models import Expenses
+from expenses.models import Expenses, Banks, Categories
 from django.contrib.auth.models import User
 from django.utils.dateparse import parse_date
+from django.core.exceptions import ObjectDoesNotExist
 
 
-def upload_files(banks, username):
+def upload_files(banks, user_pk):
     home = Path.home()
     files_list = retrieve_files(home, banks)
     move_files(home, files_list)
@@ -124,7 +125,7 @@ def check_for_duplicates(bank, bank_folder, current_file_contents):
         return []
 
 
-def add_to_database(database_list, username):
+def add_to_database(database_list, user_pk):
     # print(database_list)
     # Look into the bulk_create option in django, but have to do it right
 
@@ -133,21 +134,64 @@ def add_to_database(database_list, username):
         if expense[0] == 'Trans. Date':
             continue
 
-        if expense[-1] == 'Discover': # definitely changing this
-            date = format_date(expense[0])
+        bank_name = expense[-1]
+        date, month, year = arrange_date(expense[0])
+
+        if bank_name == 'Discover': # definitely changing this
             name = expense[2]
-            # print(format_date(date))
             amount = float(expense[3])
+            category = expense[4]
+
+        category_name = category if category else None
+        check_for_database_existence(bank_name, category_name)
+
+
+        bank_object = Banks.objects.get(name=bank_name)
+        try:
+            category_object = Category.object.get(name=category_name)
+        except ObjectDoesNotExist:
+            category_object = {'pk': 0}
+
 
 
 
         # will add each individual expense
-        e = Expenses(name=name, amount=amount, date_posted=date, user=User.objects.get(pk=pk))
+        e = Expenses(
+            name=name,
+            amount=amount,
+            month=month,
+            year=year,
+            date_posted=date,
+            category=category_object.pk,
+            bank_id=bank_object.pk,
+            user=User.objects.get(pk=user_pk)
+            )
         e.save()
         # User.expenses_set.create(name=name, amount=amount, date_posted=date)
 
 
-def format_date(date_original):
+
+# === HELPER FUNCTIONS ===
+
+def arrange_date(date_original):
     date_split = date_original.split('/')
+    # tuple reassignment to re-order into date format
     date_split[0], date_split[1], date_split[2] = date_split[2], date_split[0], date_split[1]
-    return '-'.join(date_split)
+
+    # setting month and year as strings for database
+    month = date_split[1] if len(date_split[1]) == 2 else '0'+date_split[1]
+    year = '20' + date_split[2]
+    return '-'.join(date_split), month, year
+
+
+def check_for_database_existence(bank_name, category_name):
+    # Check if bank is already in database
+    if not Banks.filter(name=bank_name).exists():
+        new_bank = Banks(name=bank_name)
+        new_bank.save()
+
+    if category_name:
+        # Check if category is already in database
+        if not Categories.filter(name=category_name).exists():
+            new_category = Categories(name=category_name)
+            new_category.save()
