@@ -19,6 +19,9 @@ class MonthPieChart extends Component {
   _populatePieChart() {
     const sections = this.props.labels;
     const labels = sections.map(label => {
+      if (label === "Payment/Credit") {
+        return {x: '0', y: 0};
+      }
       return {x: label, y: this._sumFromLabel(label)};
     });
 
@@ -29,12 +32,11 @@ class MonthPieChart extends Component {
   }
 
   _matchExpenseToCategory(expense, label) {
-    const qualifiedResults = this.props.categoricalData.filter(instance => instance.Category === label)
-    const matchedExpense = qualifiedResults.find(instance => {
-      return instance.Category === expense.Category || instance.Keyword === expense.Category.toLowerCase();
-    });
-    if (matchedExpense) {
-      return expense;
+    // const qualifiedResults = this.props.categoricalData.filter(instance => instance.Category === label)
+    if (expense[4] === label) {
+      return (expense);
+    } else {
+      return (undefined);
     }
   }
 
@@ -45,10 +47,11 @@ class MonthPieChart extends Component {
       labelExpenses.push(this._matchExpenseToCategory(expense, label));
     });
 
-    // const filteredExpenses = labelExpenses.filter(instance => instance !== undefined);
+    const filteredExpenses = labelExpenses.filter(instance => instance !== undefined);
 
-    const finalNumber = labelExpenses.reduce((a, expense) => (a + expense.Cost), 0);
-
+    const finalNumber = filteredExpenses.reduce((a, expense) => (a + parseFloat(expense[5])), 0);
+  
+    console.log(finalNumber);
     return finalNumber;
 
   }
