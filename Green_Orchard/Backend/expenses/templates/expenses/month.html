@@ -10,7 +10,11 @@
     </div>
   </div>
   <div class="month-center-align">
-    <p class="quote">"You seemed to fill the orchard this month with {{ expenses.0.name }} (${{ expenses.0.amount }}), {{ expenses.1.name }} (${{ expenses.1.amount }}), and {{ expenses.2.name }} (${{ expenses.2.amount }})"</p>
+    <!-- <p class="quote">"You seemed to fill the orchard this month with {{ expenses.0.name }} (${{ expenses.0.amount }}), {{ expenses.1.name }} (${{ expenses.1.amount }}), and {{ expenses.2.name }} (${{ expenses.2.amount }})"</p> -->
+    <p class="quote">"You seemed to fill the orchard this month with the following: " </p>
+      {% for top in highest_expenses %}
+      <p>{{ top.name }} (${{ top.amount }}), </p>
+      {% endfor %}
   </div>
   <div class="month-right-align">
     <!-- have table-like section where titles are in bold and expenses are under -->
@@ -23,6 +27,6 @@
         <p>{{ expense.date_posted }}</p>
       {% endfor %}
     </div>
-    <p>Total Spent This Month: $<span>{{ total }}</span></p>
+    <p>Total Spent This Month: $<span>{{ total.amount__sum }}</span></p>
   </div>
 {% endblock %}
