@@ -41,20 +41,22 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const data = await fetch('https://raw.githubusercontent.com/alexrogers823/interactiveBarGraph/master/month_expenses_2016.json').then(r => r.json());
+    const data = await fetch('./Frontend/sample_data.json').then(r => r.json());
     const categoricalData = await fetch('https://raw.githubusercontent.com/alexrogers823/interactiveBarGraph/master/CategoryWords.json').then(r => r.json());
-    const monthData = data[0]['month8'];
+    const monthData = data;
+    console.log(monthData);
     const monthName = this.monthNames[monthData.Month];
 
     this.setState({
       month: monthName,
-      expenses: monthData['Expenses'],
+      expenses: Object.keys(monthData),
       categories: [...new Set(categoricalData.Keywords.map(n => n.Category))],
       categoricalData: categoricalData.Keywords,
     })
   }
 
   render() {
+    // console.log(this.state.expenses);
     return (
       <div>
 

@@ -45,9 +45,9 @@ class MonthPieChart extends Component {
       labelExpenses.push(this._matchExpenseToCategory(expense, label));
     });
 
-    const filteredExpenses = labelExpenses.filter(instance => instance !== undefined);
+    // const filteredExpenses = labelExpenses.filter(instance => instance !== undefined);
 
-    const finalNumber = filteredExpenses.reduce((a, expense) => (a + expense.Cost), 0);
+    const finalNumber = labelExpenses.reduce((a, expense) => (a + expense.Cost), 0);
 
     return finalNumber;
 
