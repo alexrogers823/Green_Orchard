@@ -23,8 +23,10 @@ def index(request):
     # return render(request, 'users/dummy.html')
 
 def login(request):
+    if User.is_authenticated:
+        return redirect('users:main_profile')
+
     if request.method == 'POST':
-        messages.warning(request, f'You are already logged in. Redirected to profile')
         form = AuthenticationForm(User, request.POST)
 
         if form.is_valid():
@@ -49,6 +51,7 @@ def logout(request):
 
 def register(request):
     if User.is_authenticated:
+        messages.warning(request, f'You are already logged in. Redirected to profile')
         return redirect('users:main_profile')
 
     if request.method == 'POST':
