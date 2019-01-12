@@ -1,20 +1,9 @@
 from django.shortcuts import render
 from random import sample
+from .supplemental_info import quotes_array, faq_content
 
 # Create your views here.
 def index(request):
-    quotes_array = [
-        "\"Green Orchard helped me keep track of my funds like never before. The site makes it easy to visualize where my money is going. Give it a try!\" - Barack Obama",
-        "\"I love Green Orchard!\" - Kylie Jenner",
-        "\"Truly an innovative app. It has never been easier to see how I spend my money. Thanks Green Orchard!\" -Warren Buffett",
-        "\"The charts used in Green Orchard are a really cool way to visualize my expenditures. I can even sort by categories!\" -Trey Young",
-        "\"After trying Green Orchard, I don't want to use any other financial tracking apps!\" -Jeff Bezos",
-        "\"As a developer, I love seeing the variety of technologies employed by Green Orchard to make their app smooth, functional, and genuinely useful.\" -Dan Abramov",
-        "\"This app is a game-changer!\" -Mindy Kaling",
-        "\"I can keep track of my expenses more easily than ever before thanks to Green Orchard.\" -Julio Jones",
-        "\"The Green Orchard team did a great job putting this together!\", -Chris 'Radishmouse' Aquino"
-    ]
-
     context = {
         'css_file': 'general/index.css',
         'quotes': sample(quotes_array, 2)
@@ -30,6 +19,7 @@ def about_us(request):
 def faq(request):
     context = {
         'css_file': 'general/faq.css',
+        'faq_content': faq_content
     }
     # return HttpResponse("This is the faq part")
     # return render(request, 'expenses/dummy.html')
