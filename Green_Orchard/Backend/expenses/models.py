@@ -7,8 +7,8 @@ from django.contrib.auth.models import User
 class Expenses(models.Model):
     name = models.CharField(max_length=100)
     amount = models.DecimalField(max_digits=7, decimal_places=2)
-    # month = just month here
-    # year = just month here
+    month = models.CharField(max_length=2, default='0')
+    year = models.CharField(max_length=4, default='0')
     date_posted = models.DateTimeField(default=timezone.now)
     last_updated = models.DateTimeField(auto_now=True)
     category = models.ForeignKey('Categories', on_delete=models.SET_NULL, null=True)

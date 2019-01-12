@@ -8,6 +8,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm
+from mysite.csv_import import upload_files
 
 # Create your views here.
 
@@ -17,10 +18,14 @@ def index(request):
         'name': 'Alex Rogers',
         'banks': ['Wells Fargo', 'Discover', 'Capital One', 'Bank of America']
     }
+
     return render(request, 'users/user_profile.html', context)
     # return render(request, 'users/dummy.html')
 
 def login(request):
+    if User.is_authenticated:
+        return redirect('users:main_profile')
+
     if request.method == 'POST':
         form = AuthenticationForm(User, request.POST)
 
@@ -45,6 +50,10 @@ def logout(request):
     return redirect('login')
 
 def register(request):
+    if User.is_authenticated:
+        messages.warning(request, f'You are already logged in. Redirected to profile')
+        return redirect('users:main_profile')
+
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         form.save() # Also hashes password for security
@@ -66,6 +75,22 @@ def register(request):
 def edit_profile(request):
     context = {
         'css_file': 'users/edit_profile.css',
+        'banks': ['Wells Fargo', 'Discover', 'Capital One', 'Bank of America']
     }
-    return render(request, 'users/dummy.html')
-    # return render(request, 'users/edit_profile.html', context)
+    # return render(request, 'users/dummy.html')
+    return render(request, 'users/edit_profile.html', context)
+
+@login_required
+def upload(request):
+    context = {
+        'css_file': 'users/styleUpload.css',
+    }
+
+    return render(request, 'users/upload.html', context)
+
+@login_required
+def run_csv_upload(request):
+    the_user = request.user.pk
+    print(the_user)
+    upload_files(['Discover'], the_user)
+    return redirect('expenses:expense-summary')

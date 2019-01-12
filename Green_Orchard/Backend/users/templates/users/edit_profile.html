@@ -3,12 +3,11 @@
 {% block content %}
 
 <div class="Edits">
-    <h1>Edit Profile - {{ name }}</h1>
-    <!-- --------------------------------------- -->
+    <h1>Edit Profile - {{ user.username }}</h1>
     <button class="accordion">Edit Username</button>
         <div class="panel">
             <p>Enter a new username:</p>
-            <input type="text">
+            <input type="text" placeholder="{{ user.username }}">
             <p>Enter your password to confirm:</p>
             <input type="password">
             <input type="submit">
@@ -26,7 +25,7 @@
     <button class="accordion">Edit Profile Picture</button>
     <div class="panel">
         <p>Click on your picture to edit:</p>
-        <a href="#"><p>{{ current picture }}</p></a>
+        <a href="#"><img src="{{ user.userprofile.image.url }}" alt="{{ user.username }} current picture"></a>
     </div>
 
     <button class="accordion">Edit Banks</button>
@@ -35,11 +34,10 @@
             <input type="text">
             <input type="submit" value="Add Bank">
             <h3>Your Banks:</h3>
-            <!-- {% for bank in banks %} -->
-            <p>{{ bank }}</p> <input type="button" value="&times">
-            <p>{{ bank }}</p> <input type="button" value="&times">
-            <p>{{ bank }}</p> <input type="button" value="&times">
-
+            {% for bank in banks %}
+              <span>{{ bank }}</span> <input type="button" value="&times">
+              <br>
+            {% endfor %}
         </div>
 
     <button class="accordion">Delete Profile (permanent)</button>

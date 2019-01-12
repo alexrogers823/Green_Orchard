@@ -23,7 +23,7 @@
             <i class="fas fa-tree"></i>
             <nav role='navigation'>
                 <ul class="navLeft">
-                        <li><a href="#">{{ user.username }}</a></li>
+                        <li><a href="{% url 'users:main_profile' %}">{{ user.username }}</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
                         </ul>
                 <ul class="navRight">
@@ -51,8 +51,8 @@
                     <div class="Other">
                     <li><button href="Other-btn">Other</button></li>
                     <div class="dropDown-content">
-                            <a href="#">Personal Budget</a>
-                            <a href="#">Loan Tracker</a>
+                            <a disabled href="">Personal Budget</a>
+                            <a disabled href="">Loan Tracker</a>
                             <a href="{% url 'about-us' %}">The Team</a>
                             <a href="{% url 'faq' %}">FAQ </a>
                         </div>
