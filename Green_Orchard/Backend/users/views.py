@@ -24,6 +24,7 @@ def index(request):
 
 def login(request):
     if request.method == 'POST':
+        messages.warning(request, f'You are already logged in. Redirected to profile')
         form = AuthenticationForm(User, request.POST)
 
         if form.is_valid():
@@ -47,6 +48,9 @@ def logout(request):
     return redirect('login')
 
 def register(request):
+    if User.is_authenticated:
+        return redirect('users:main_profile')
+
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         form.save() # Also hashes password for security
