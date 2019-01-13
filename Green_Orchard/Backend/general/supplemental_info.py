@@ -34,9 +34,9 @@ dev_info = [
     },
     {
         'name': 'Sam Erickson',
-        'github': '',
-        'linkedin': '',
-        'bio': ''
+        'github': 'https://github.com/samerickson95',
+        'linkedin': 'https://www.linkedin.com/in/sam-erickson-82b641163/',
+        'bio': 'Sam is a web developer who was brand new to the world of coding prior to attending DigitalCrafts in Atlanta. He graduated from the University of South Carolina in 2017 with a Bachelor\'s in Psychology, and not long after graduating he decided to dive into software development to grow his skillset. Sam is particularly interested in front-end web development and webpage design, especially using ReactJS. He is seeking a full-time developer role in the tech industry in the coming months as he continues to hone his craft. Outside of coding, Sam is passionate about listening to and writing music on his guitar and bass, using a slow-cooker, and driving on backroads to avoid traffic.'
     },
 ]
 
