@@ -18,35 +18,17 @@
 
 <div class="AboutUs">
 
+  {% for dev in dev_info %}
     <div class="About">
-        <h3>Alex Rogers</h3>
-        <p>(picture here)</p>
-        <p>Alex is a self-taught developer who first learned programming in a Python introductory course in college. He graduated from Emory University in 2016 with a double major in business and music, and started his career as a financial analyst. When his love for code grew stronger, he left the finance world to pursue software development professionally. Since January 2019, Alex has been working full-time in the tech industry.</p>
-        <p>When he's not coding, you can find him singing in choir, working out at the gym, and mentoring the youth in his community.</p>
-        <span>
-            <a href="https://github.com/alexrogers823" target="_blank"><i class="fab fa-github-square fa-lg"></i></a>
-            <a href="https://www.linkedin.com/in/alexrogers823/" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
-        </span>
+      <h3>{{ dev.name }}</h3>
+      <p>(picture here)</p>
+      <p>{{ dev.bio }}</p>
+      <span>
+        <a href="{{ dev.github }}" target="_blank"><i class="fab fa-github-square fa-lg"></i></a>
+        <a href="{{ dev.linkedin }}" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
+      </span>
     </div>
 
-    <div class="About">
-        <h3>Will Harris</h3>
-        <p>(picture here)</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <span>(GitHub here)</span>
-        <span>(LinkedIn here)</span>
-    </div>
-
-    <div class="About">
-        <h3>Sam Erickson</h3>
-        <p>(picture here)</p>
-        <p>Sam is a web developer who was brand new to the world of coding prior to attending DigitalCrafts in Atlanta. He graduated from the University of South Carolina in 2017 with a Bachelor's in Psychology, and not long after graduating he decided to dive into software development to grow his skillset. Sam is particularly interested in front-end web development and webpage design, especially using React. He is seeking a full-time developer role in the tech industry in the coming months as he continues to hone his craft.</p>
-        <p>Outside of coding, Sam is passionate about listening to and writing music on his guitar and bass, using a slow-cooker, and driving on backroads to avoid traffic.</p>
-        <span>
-            <a href="https://github.com/samerickson95" target="_blank"><i class="fab fa-github-square fa-lg"></i></a>
-            <a href="https://www.linkedin.com/in/sam-erickson-82b641163/" target="_blank"><i class="fab fa-linkedin fa-lg"></i></a>
-        </span>
-    </div>
-
+  {% endfor %}
 </div>
 {% endblock %}
