@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from random import sample
-from .supplemental_info import quotes_array, faq_content
+from .supplemental_info import quotes_array, faq_content, dev_info
 
 # Create your views here.
 def index(request):
@@ -13,6 +13,7 @@ def index(request):
 def about_us(request):
     context = {
         'css_file': 'general/about_us.css',
+        'dev_info': dev_info,
     }
     return render(request, 'general/about_us.html', context)
 

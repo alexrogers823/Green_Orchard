@@ -10,6 +10,36 @@ quotes_array = [
     "\"The Green Orchard team did a great job putting this together!\", -Chris 'Radishmouse' Aquino"
 ]
 
+dev_info = [
+    {
+        'name': 'Alex Rogers',
+        'github': '',
+        'linkedin': '',
+        'bio': '''Alex is a self-taught developer who first learned
+                programming in a Python introductory course in college.
+                He graduated at Emory University in 2016 with a double major
+                in business and music, and started his career as a financial
+                analyst. When his love for code grew stronger, he left the
+                finance world to pursue software development professionally.
+                Since January 2019, Alex has been working full-time in the
+                tech industry. When he's not coding, you can find him singing
+                in choir, working out at the gym, and mentoring the youth in
+                his community.'''
+    },
+    {
+        'name': 'Will Harris',
+        'github': '',
+        'linkedin': '',
+        'bio': ''
+    },
+    {
+        'name': 'Sam Erickson',
+        'github': '',
+        'linkedin': '',
+        'bio': ''
+    },
+]
+
 faq_content = {
     'General': [
         {
@@ -76,7 +106,7 @@ faq_content = {
         },
         {
             'Question': 'How do I change my profile picture?',
-            'Answer': '',
+            'Answer': 'Users can edit their picture by going to their profile page, then on the link that takes them to edit the profile, users can click on the picture and re-upload from there.',
         },
         {
             'Question': 'How do I change my username or password?',
