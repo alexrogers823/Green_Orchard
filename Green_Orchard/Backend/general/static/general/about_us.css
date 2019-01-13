@@ -41,5 +41,5 @@ html {
 }
 
 .About a:hover {
-    filter: invert(100%);
+    filter: invert(30%);
 }

@@ -1,3 +1,0 @@
-API key for newsapi.org (Will use for info on banks people use)
-12c64839545f412db420b600e0b20849
-
