@@ -5,12 +5,34 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 
 
 class UserRegisterForm(UserCreationForm):
-    email = forms.EmailField() # default: required = True
+    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Email'})) # default: required = True
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        for field_name in self.fields:
+            field = self.fields.get(field_name)
+            self.fields[field_name].widget.attrs.update({'placeholder': field.label})
 
     class Meta: # Specify model that it interacts with
         model = User
         fields = ['username', 'email', 'password1', 'password2']
 
+
 class UserLoginForm(AuthenticationForm):
+    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Email'})) # default: required = True
     class Meta:
         model = User
+        fields = ['username', 'email']
+        widgets = {
+            'username': forms.TextInput(attrs={'placeholder': 'Username'}),
+            'password': forms.TextInput(attrs={'placeholder': 'Password'})
+        }
+
+
+class UserEditForm(forms.Form):
+    username = forms.CharField()
+    password = forms.CharField() # Change so that this is hidden
+
+    class Meta:
+        model = User
+        fields = ['username', 'password']
