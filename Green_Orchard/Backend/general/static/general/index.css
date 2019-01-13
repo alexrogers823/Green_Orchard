@@ -86,3 +86,20 @@ h2 a:hover {
     color: black;
     text-shadow: 2px 2px 2px #16ca16;
 }
+
+/* --------------------------------------------------------- */
+/* Media Queries */
+/* --------------------------------------------------------- */
+
+@media screen and (min-width: 0px) and (max-width: 1199px) {
+    .LoginBox {
+        position: relative;
+        margin: auto;
+        top: -2rem;
+    }
+
+    .AboutGreenOrchard {
+        position: relative;
+        margin: auto;
+    }
+}

@@ -1,5 +1,3 @@
-
-
 body {
     font-family: 'Dosis', sans-serif;
     background-image: url("https://images.pexels.com/photos/1353938/pexels-photo-1353938.jpeg?cs=srgb&dl=branch-bright-freshness-1353938.jpg&fm=jpg");
@@ -22,10 +20,20 @@ li {
 
 h2 {
     text-align: center;
+    padding: 1%;
+}
+
+h3 {
+    padding: 1%;
 }
 
 h4 {
     font-weight: 800;
+    padding: 1%;
+}
+
+p {
+    padding: 1%;
 }
 
 .QuestionNav {
@@ -51,4 +59,24 @@ h4 {
 .EmailLink {
     border: 3px outset #16ca16;
     text-align: center;
+}
+
+/* --------------------------------------------------------- */
+/* Media Queries */
+/* --------------------------------------------------------- */
+
+@media screen and (min-width: 0px) and (max-width: 609px) {
+    ul {
+        white-space: normal;
+        /* margin-left: 1rem; */
+        margin-right: 2rem;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h3, h4, p {
+        padding: 2%;
+    }
 }

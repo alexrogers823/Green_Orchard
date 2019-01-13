@@ -8,6 +8,7 @@ body {
 
 html {
     background-image: url("https://images.pexels.com/photos/1250260/pexels-photo-1250260.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+    /* background: #16ca16; */
 }
 
 .Header {
@@ -41,5 +42,21 @@ html {
 }
 
 .About a:hover {
-    filter: invert(100%);
+    filter: invert(30%);
+}
+
+/* --------------------------------------------------------- */
+/* Media Queries */
+/* --------------------------------------------------------- */
+
+@media only screen and (max-width: 750px) {
+    .AboutUs {
+        display: block;
+        margin-left: 1rem;
+        margin-right: 1rem;
+    }
+
+    .Header {
+        text-align: center;
+    }
 }
