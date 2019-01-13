@@ -23,8 +23,8 @@ def index(request):
     # return render(request, 'users/dummy.html')
 
 def login(request):
-    if User.is_authenticated:
-        return redirect('users:main_profile')
+    # if User.is_authenticated:
+    #     return redirect('users:main_profile')
 
     if request.method == 'POST':
         form = AuthenticationForm(User, request.POST)
@@ -47,12 +47,12 @@ def login(request):
 
 def logout(request):
     user_logout(request)
-    return redirect('login')
+    return redirect('root')
 
 def register(request):
-    if User.is_authenticated:
-        messages.warning(request, f'You are already logged in. Redirected to profile')
-        return redirect('users:main_profile')
+    # if User.is_authenticated:
+    #     messages.warning(request, f'You are already logged in. Redirected to profile')
+    #     return redirect('users:main_profile')
 
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)

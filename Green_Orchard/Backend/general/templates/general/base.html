@@ -16,11 +16,11 @@
   <title>{{ title }} - Green Orchard</title>
 </head>
 <body>
-  {% if user.is_authenticated %}
     <header id="topnav">
         <div class="inner">
             <div class="logo">Green Orchard</div>
             <i class="fas fa-tree"></i>
+          {% if user.is_authenticated %}
             <nav role='navigation'>
                 <ul class="navLeft">
                         <li><a href="{% url 'users:main_profile' %}">{{ user.username }}</a></li>
@@ -51,8 +51,8 @@
                     <div class="Other">
                     <li><button href="Other-btn">Other</button></li>
                     <div class="dropDown-content">
-                            <a disabled href="">Personal Budget</a>
-                            <a disabled href="">Loan Tracker</a>
+                            <a href="#">Personal Budget</a>
+                            <a href="#">Loan Tracker</a>
                             <a href="{% url 'about-us' %}">The Team</a>
                             <a href="{% url 'faq' %}">FAQ </a>
                         </div>
@@ -62,10 +62,6 @@
         </div>
       </header>
   {% else %}
-    <header id="topnav">
-        <div class="inner">
-            <div class="logo">Green Orchard</div>
-            <i class="fas fa-tree"></i>
             <nav role='navigation'>
                 <ul class="navLeft">
                         <li><a href="{% url 'login' %}">Login</a></li>
