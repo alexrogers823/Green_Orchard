@@ -7,7 +7,7 @@ from django.contrib.auth import (
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, UserLoginForm
 from mysite.csv_import import upload_files
 
 # Create your views here.
@@ -27,7 +27,7 @@ def login(request):
     #     return redirect('users:main_profile')
 
     if request.method == 'POST':
-        form = AuthenticationForm(User, request.POST)
+        form = UserLoginForm(User, request.POST)
 
         if form.is_valid():
             form.clean()
@@ -47,7 +47,7 @@ def login(request):
 
 def logout(request):
     user_logout(request)
-    return redirect('root')
+    return redirect('login')
 
 def register(request):
     # if User.is_authenticated:
