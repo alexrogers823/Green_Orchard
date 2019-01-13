@@ -49,7 +49,7 @@ html {
 /* Media Queries */
 /* --------------------------------------------------------- */
 
-@media only screen and (min-width: 0px) and (max-width: 750px) {
+@media only screen and (max-width: 750px) {
     .AboutUs {
         display: block;
         margin-left: 1rem;
