@@ -16,6 +16,15 @@ class MonthPieChart extends Component {
 
   }
 
+  // _resetAddBar = () => {
+  //   this.setState({
+  //     Expense: '',
+  //     Category: '',
+  //     Cost: '',
+  //     Month: this.props.month,
+  //   });
+  // }
+
   _populatePieChart() {
     const sections = this.props.labels;
     const labels = sections.map(label => {
@@ -29,6 +38,17 @@ class MonthPieChart extends Component {
 
     console.log(this.props.expenses);
 
+  }
+
+  _pieChartLevel2 = (arc) => {
+    const sections = this.props.pieData;
+    const labels = sections.map(label => {
+      return {x: label, y: this._sumFromLabel};
+    });
+
+    console.log(labels);
+
+    
   }
 
   _matchExpenseToCategory(expense, label) {
@@ -66,7 +86,7 @@ class MonthPieChart extends Component {
         height={400}
         margin={{top: 10, bottom: 10, left: 100, right: 100}}
         sort={this.sort}
-        />
+      />
     )
   }
 }
