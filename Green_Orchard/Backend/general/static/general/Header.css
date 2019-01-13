@@ -138,13 +138,13 @@ header {
     cursor: pointer;
   }
 
-  .dropDown-content a:hover {background-color: #16ca16;}
+  .dropDown-content a:hover {background-color: #ddd;}
   .Months:hover .dropDown-content {display: block;}
   .Months:hover .Months-btn {background-color: #16ca16;}
 
   .dropDown-content a:hover {background-color: #ddd;}
   .Other:hover .dropDown-content {display: block;}
-  .Other:hover .Other-btn {background-color: #16ca16;}
+  .Other:hover .Other-btn {background-color: #3e8e41;}
 
   a.disabled {
     pointer-events: none
