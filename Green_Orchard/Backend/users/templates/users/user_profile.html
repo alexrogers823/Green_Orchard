@@ -11,6 +11,6 @@
   <p>{{ bank }}</p>
 {% endfor %}
 
-<p><a href="#">Edit Profile</a></p>
+<p><a href="{% url 'users:edit_profile' %}">Edit Profile</a></p>
 
 {% endblock %}
