@@ -12,7 +12,7 @@ def upload_files(banks, user_pk):
     move_files(home, files_list)
 
     database_list = read_files(home, files_list)
-    add_to_database(database_list, username)
+    add_to_database(database_list, user_pk)
 
     return True
 
@@ -131,11 +131,12 @@ def add_to_database(database_list, user_pk):
 
     # will use ORM queries to add to postgresql
     for expense in database_list:
-        if expense[0] == 'Trans. Date':
+        if expense[0].startswith('Trans'):
             continue
 
         bank_name = expense[-1]
-        date, month, year = arrange_date(expense[0])
+        print(expense[0])
+        date, month, year = arrange_date(expense[0], bank_name)
 
         if bank_name == 'Discover': # definitely changing this
             name = expense[2]
@@ -148,7 +149,7 @@ def add_to_database(database_list, user_pk):
 
         bank_object = Banks.objects.get(name=bank_name)
         try:
-            category_object = Category.object.get(name=category_name)
+            category_object = Categories.objects.get(category=category_name)
         except ObjectDoesNotExist:
             category_object = {'pk': 0}
 
@@ -162,8 +163,8 @@ def add_to_database(database_list, user_pk):
             month=month,
             year=year,
             date_posted=date,
-            category=category_object.pk,
-            bank_id=bank_object.pk,
+            category=category_object,
+            bank_id=bank_object,
             user=User.objects.get(pk=user_pk)
             )
         e.save()
@@ -173,25 +174,26 @@ def add_to_database(database_list, user_pk):
 
 # === HELPER FUNCTIONS ===
 
-def arrange_date(date_original):
-    date_split = date_original.split('/')
-    # tuple reassignment to re-order into date format
-    date_split[0], date_split[1], date_split[2] = date_split[2], date_split[0], date_split[1]
+def arrange_date(date_original, bank_name):
+    if bank_name == 'Discover':
+        date_split = date_original.split('/')
+        # tuple reassignment to re-order into date format
+        date_split[0], date_split[1], date_split[2] = date_split[2], date_split[0], date_split[1]
 
-    # setting month and year as strings for database
-    month = date_split[1] if len(date_split[1]) == 2 else '0'+date_split[1]
-    year = '20' + date_split[2]
-    return '-'.join(date_split), month, year
+        # setting month and year as strings for database
+        month = date_split[1] if len(date_split[1]) == 2 else '0'+date_split[1]
+        year = '20' + date_split[2]
+        return '-'.join(date_split), month, year
 
 
 def check_for_database_existence(bank_name, category_name):
     # Check if bank is already in database
-    if not Banks.filter(name=bank_name).exists():
+    if not Banks.objects.filter(name=bank_name).exists():
         new_bank = Banks(name=bank_name)
         new_bank.save()
 
     if category_name:
         # Check if category is already in database
-        if not Categories.filter(name=category_name).exists():
-            new_category = Categories(name=category_name)
+        if not Categories.objects.filter(category=category_name).exists():
+            new_category = Categories(category=category_name)
             new_category.save()
