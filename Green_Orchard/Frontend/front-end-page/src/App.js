@@ -22,7 +22,7 @@ news: [
     }
 
 
-    componentDidMount(){
+componentDidMount(){
         this.updateList();
         setInterval(this.updateList,1000);
     }
