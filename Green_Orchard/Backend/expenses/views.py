@@ -40,6 +40,16 @@ def month(request):
     }
     return render(request, 'expenses/month.html', context)
 
+class Month(DetailView):
+    model = Expenses
+    template_name = 'expenses/month.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['expenses'] = model.objects.filter(month='<str:month>').order_by('date_posted')
+        context['highest_expenses'] = model.objects.filter(month='<str:month>').order_by('-amount')[:3]
+        context['total'] = model.objects.filter(month='<str:month>').aggregate(Sum('amount'))
+        return context
+
 @login_required
 def category(request):
     context = {

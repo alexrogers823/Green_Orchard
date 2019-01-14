@@ -20,11 +20,17 @@
 
 <div class="LoginBox">
     <h3>Login</h3>
-    <div class="LoginInputs">
+    <!-- <div class="LoginInputs">
         <p>Username: <input type="text"></p>
         <p>Password: <input type="password"></p>
-    </div>
-    <input type="submit" value="Check your Orchard!">
+    </div> -->
+    <form method="POST">
+      {% csrf_token %}
+      <fieldset>
+        {{ form.as_p }}
+      </fieldset>
+      <input type="submit" value="Check your Orchard!">
+    </form>
     <p>Don't have an account? <a href="{% url 'register' %}">Click to Register!</a></p>
 </div>
 
