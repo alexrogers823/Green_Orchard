@@ -115,7 +115,7 @@ h1 {
 
 @media screen and (max-width: 768px) {
     body {
-        font-family: 'Open Sans', sans-serif;
+        /* font-family: 'Open Sans', sans-serif; */
         background: url(https://images.pexels.com/photos/460621/pexels-photo-460621.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center center fixed;
         background-position: center;
         margin: 6em 2em;
