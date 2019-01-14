@@ -28,9 +28,9 @@ dev_info = [
     },
     {
         'name': 'Will Harris',
-        'github': '',
-        'linkedin': '',
-        'bio': ''
+        'github': 'https://github.com/harriswill22',
+        'linkedin': 'www.linkedin.com/in/william-harris-648ab9171',
+        'bio': 'Will is a Software Developer who was first learned programming in a Java course in college. He graduated from Georgia SouthernS University  with a major in Computer Information Systems. He was introduced to the tech industry through his mom who was an Energy leader in the Obama Presidency. William has a deep passion for coding and helping others, he will continue growing his skills and love for programming. One day he hopes to give back to his community by teaching under privilege kids the language of code. On his free time he loves to push himself physically and mentally by working out and researching how the universe works.  '
     },
     {
         'name': 'Sam Erickson',
