@@ -4,8 +4,16 @@ const PageButtons = props => {
     return (
         <div>
             <h3>Cycle Between Months:</h3>
-            <i class="fas fa-arrow-alt-circle-left"></i>
-            <i class="fas fa-arrow-alt-circle-right"></i>
+            <button className="Pagination" onClick={() => {
+                props.handleDecrease()
+            }}>
+                <i class="fas fa-arrow-alt-circle-left"></i>
+            </button>
+            <button className="Pagination" onClick={() => {
+                props.handleIncrease()
+            }}>
+                <i class="fas fa-arrow-alt-circle-right"></i>
+            </button>
         </div>
     );
 };
