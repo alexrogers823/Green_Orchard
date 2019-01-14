@@ -1,3 +1,4 @@
 Beta_Green_Orchard
 *.pyc
-config.js
+Green_Orchard/Frontend/front-end-page/src/config.js
+Green_Orchard/Other/news_api_key.txt

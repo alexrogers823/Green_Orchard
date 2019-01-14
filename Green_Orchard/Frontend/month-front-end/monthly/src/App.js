@@ -41,20 +41,26 @@ class App extends Component {
   }
 
   async componentDidMount() {
-    const data = await fetch('https://raw.githubusercontent.com/alexrogers823/interactiveBarGraph/master/month_expenses_2016.json').then(r => r.json());
-    const categoricalData = await fetch('https://raw.githubusercontent.com/alexrogers823/interactiveBarGraph/master/CategoryWords.json').then(r => r.json());
-    const monthData = data[0]['month8'];
-    const monthName = this.monthNames[monthData.Month];
+    const data = await fetch('https://raw.githubusercontent.com/alexrogers823/Green_Orchard/staging/Green_Orchard/Frontend/sample_data.json').then(r => r.json());
+    // const categoricalData = await fetch('https://raw.githubusercontent.com/alexrogers823/interactiveBarGraph/master/CategoryWords.json').then(r => r.json());
+    // const monthData = data;
+    // console.log(monthData);
+    // const monthName = this.monthNames[monthData.Month];
+    const finalData = [];
+    for (let i=1; i<42; i++) {
+      finalData.push(data[`${i}`].Expense)
+    };
 
     this.setState({
-      month: monthName,
-      expenses: monthData['Expenses'],
-      categories: [...new Set(categoricalData.Keywords.map(n => n.Category))],
-      categoricalData: categoricalData.Keywords,
+      month: '10',
+      expenses: finalData,
+      categories: [...new Set(finalData.map(category => category[4]))],
+      // categoricalData: categoricalData.Keywords,
     })
   }
 
   render() {
+    // console.log(this.state.expenses);
     return (
       <div>
 
@@ -75,7 +81,7 @@ class App extends Component {
           <div className="PieChart">
             <MonthPieChart 
               labels={this.state.categories} 
-              categoricalData={this.state.categoricalData} 
+              // categoricalData={this.state.categoricalData} 
               expenses={this.state.expenses} 
             />
           </div>

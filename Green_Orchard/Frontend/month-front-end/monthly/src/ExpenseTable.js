@@ -25,9 +25,9 @@ function _makeTable(month, expenses) {
     return (
       <tr key={i+1}>
         <td>{month}</td>
-        <td>{exp.Expense}</td>
-        <td>{exp.Category}</td>
-        <td>{exp.Cost}</td>
+        <td>{exp[3]}</td>
+        <td>{exp[4]}</td>
+        <td>{exp[5]}</td>
       </tr>
     )
   }).reverse();

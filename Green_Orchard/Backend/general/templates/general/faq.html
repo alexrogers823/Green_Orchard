@@ -8,81 +8,21 @@
   <h2>Search questions by category:</h2>
 
   <nav class="QuestionNav">
-    <ul>
-      <li><a href="#General">General</a></li> |
-      <li><a href="#Expenses">Expenses</a></li> |
-      <li><a href="#Budget">Budget</a></li> |
-      <li><a href="#LoanTracker">Loan Tracker</a></li> |
-      <li><a href="#Profile">Profile</a></li> |
-      <li><a href="#Banks">Banks</a></li>
+    <ul> |
+      {% for topic in faq_content.keys %}
+        <li><a href="#{{ topic }}" class="Questions">{{ topic }}</a></li> |
+      {% endfor %}
     </ul>
   </nav>
 
-  <h3 class="QuestionCategory" id="General">General</h3>
 
-  <h4>Question</h4>
-  <p>Answer</p>
-
-  <h4>Question</h4>
-  <p>Answer</p>
-
-  <h4>Question</h4>
-  <p>Answer</p>
-
-  <h3 class="QuestionCategory" id="Expenses">Expenses</h3>
-
-  <h4>Question</h4>
-  <p>Answer</p>
-
-  <h4>Question</h4>
-  <p>Answer</p>
-
-  <h4>Question</h4>
-  <p>Answer</p>
-
-  <h3 class="QuestionCategory" id="Budget">Budget</h3>
-
-  <h4>Question</h4>
-  <p>Answer</p>
-
-  <h4>Question</h4>
-  <p>Answer</p>
-
-  <h4>Question</h4>
-  <p>Answer</p>
-
-  <h3 class="QuestionCategory" id="LoanTracker">Loan Tracker</h3>
-
-  <h4>Question</h4>
-  <p>Answer</p>
-
-  <h4>Question</h4>
-  <p>Answer</p>
-
-  <h4>Question</h4>
-  <p>Answer</p>
-
-  <h3 class="QuestionCategory" id="Profile">Profile</h3>
-
-  <h4>Question</h4>
-  <p>Answer</p>
-
-  <h4>Question</h4>
-  <p>Answer</p>
-
-  <h4>Question</h4>
-  <p>Answer</p>
-
-  <h3 class="QuestionCategory" id="Banks">Banks</h3>
-
-  <h4>Question</h4>
-  <p>Answer</p>
-
-  <h4>Question</h4>
-  <p>Answer</p>
-
-  <h4>Question</h4>
-  <p>Answer</p>
+  {% for topic, value in faq_content.items %}
+    <h3 class="QuestionCategory" id="{{ topic }}">{{ topic }}</h3>
+    {% for inquiry in value %}
+      <h4>{{ inquiry.Question }}</h4>
+      <p>{{ inquiry.Answer }}</p>
+    {% endfor %}
+  {% endfor %}
 
 
   <div class="EmailLink">
