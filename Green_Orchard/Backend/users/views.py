@@ -58,8 +58,10 @@ def register(request):
         form = UserRegisterForm(request.POST)
         form.save() # Also hashes password for security
         if form.is_valid():
-            upload_files(['Discover'], request.user.pk)
             username = form.cleaned_data.get('username')
+            pk = form.cleaned_data.get('pk')
+            print(pk)
+            # upload_files(['Discover'], pk)
             messages.success(request, f'{username} has successfully registered!')
             return redirect('users:main_profile')
     else:
