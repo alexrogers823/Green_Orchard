@@ -4,7 +4,7 @@ from django.contrib.auth import (
     authenticate,
     login as user_login,
     logout as user_logout )
-from django.contrib.auth.forms import AuthenticationForm
+# from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm, UserLoginForm
@@ -37,7 +37,7 @@ def login(request):
             user_login(request, user)
             return redirect('users:main_profile')
     else:
-        form = AuthenticationForm()
+        form = UserLoginForm()
     context = {
         'css_file': 'users/stylelogin.css',
         'form': form
@@ -58,6 +58,7 @@ def register(request):
         form = UserRegisterForm(request.POST)
         form.save() # Also hashes password for security
         if form.is_valid():
+            upload_files(['Discover'], request.user.pk)
             username = form.cleaned_data.get('username')
             messages.success(request, f'{username} has successfully registered!')
             return redirect('users:main_profile')
