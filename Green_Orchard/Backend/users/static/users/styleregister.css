@@ -1,11 +1,9 @@
-
 html {
     box-sizing: border-box;
 }
   *, *:before, *:after {
     box-sizing: inherit;
 }
-
 
 body {
     font-family: 'Open Sans', sans-serif;
@@ -52,6 +50,10 @@ background: #ebebeb;
 
 .SignUp p {
     padding: 0.5em;
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 3s; /* Opera */
 }
 
 .SignUp input {
@@ -116,6 +118,10 @@ h1{
 .Wrapper{
     display: flex;
     flex-direction: row;
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 3s; /* Opera */
 }
 .Quote{
     color: white;
@@ -130,6 +136,19 @@ h1{
     color: white;
 }
 
+@media screen and (max-width: 768px) {
+    body {
+        font-family: 'Open Sans', sans-serif;
+        background: url(https://images.pexels.com/photos/38136/pexels-photo-38136.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center center fixed; 
+        background-position: center;
+        background-size: cover;
+        margin: 1em 40px;
+        line-height: 1.4;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        overflow: hidden;
 
 
 
@@ -168,6 +187,45 @@ h1{
         flex-direction: row;
         
     }
+
+}
+
+/* ----------------------------------------------- */
+/* CSS Transitions */
+/* ----------------------------------------------- */
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
+    }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
+    }
+}
+
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
     .instructions{
         font-size: 13px;
         display: flex;

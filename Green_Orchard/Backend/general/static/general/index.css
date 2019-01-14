@@ -11,6 +11,10 @@ body {
     text-align: center;
     font-size: 250%;
     text-shadow: 3px 3px 3px white;
+    animation: fadein 4s;
+    -moz-animation: fadein 4s; /* Firefox */
+    -webkit-animation: fadein 4s; /* Safari and Chrome */
+    -o-animation: fadein 4s; /* Opera */
 }
 
 .LoginBox {
@@ -23,6 +27,10 @@ body {
     width: 20rem;
     text-align: center;
     opacity: .88;
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 3s; /* Opera */
 }
 
 .LoginBox h3 {
@@ -47,7 +55,11 @@ body {
     background-color: rgb(207, 231, 139);
     margin: auto;
     text-align: center;
-    opacity: .8;
+    opacity: .88;
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 3s; /* Opera */
 }
 
 .Quotes {
@@ -61,7 +73,11 @@ body {
     background-color: rgb(207, 231, 139);
     /* margin-left: 40%; */
     margin: auto;
-    opacity: .8;
+    opacity: .88;
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 3s; /* Opera */
 }
 
 .GrowYourOrchard {
@@ -71,6 +87,10 @@ body {
     margin: auto;
     font-size: 150%;
     text-align: center;
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 3s; /* Opera */
 }
 
 .GrowYourOrchard h2 {
@@ -87,9 +107,9 @@ h2 a:hover {
     text-shadow: 2px 2px 2px #16ca16;
 }
 
-/* --------------------------------------------------------- */
+/* -------------------------------------------------- */
 /* Media Queries */
-/* --------------------------------------------------------- */
+/* -------------------------------------------------- */
 
 @media screen and (min-width: 0px) and (max-width: 1199px) {
     .LoginBox {
@@ -101,5 +121,44 @@ h2 a:hover {
     .AboutGreenOrchard {
         position: relative;
         margin: auto;
+    }
+}
+
+/* -------------------------------------------------- */
+/* CSS Transitions */
+/* -------------------------------------------------- */
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
+    }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
+    }
+}
+
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
     }
 }

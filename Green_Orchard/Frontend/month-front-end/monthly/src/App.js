@@ -46,6 +46,9 @@ class App extends Component {
     // const monthData = data;
     // console.log(monthData);
     // const monthName = this.monthNames[monthData.Month];
+
+    // console.log(data);
+
     const finalData = [];
     for (let i=1; i<42; i++) {
       finalData.push(data[`${i}`].Expense)
@@ -62,7 +65,7 @@ class App extends Component {
   render() {
     // console.log(this.state.expenses);
     return (
-      <div>
+      <div className="container">
 
         <div className="Header">
           <header>Green Orchard</header>
@@ -101,7 +104,10 @@ class App extends Component {
         </div>
 
         <div className="Pagination">
-          <PageButtons />
+          <PageButtons 
+            handleIncrease={this._increaseMonth}
+            handleDecrease={this._decreaseMonth}
+          />
         </div>
 
       </div>
@@ -114,6 +120,38 @@ class App extends Component {
         ...this.state.expenses,
         expense
       ]
+    });
+  }
+
+  _increaseMonth = () => {
+    // console.log("increasing month");
+    // console.log(this.state.month);
+    let thisMonth = parseInt(this.state.month);
+    let nextMonth;
+    if (thisMonth < 12) {
+      nextMonth = thisMonth + 1;
+    } else if (parseInt(this.state.month) === 12) {
+      nextMonth = 1;
+    }
+
+    this.setState({
+      month: nextMonth
+    });
+  }
+
+  _decreaseMonth = () => {
+    // console.log("decreasing month");
+    // console.log(this.state.month);
+    let thisMonth = parseInt(this.state.month);
+    let previousMonth;
+    if (this.state.month > 1) {
+      previousMonth = thisMonth - 1;
+    } else if (parseInt(this.state.month) === 1) {
+      previousMonth = 12;
+    }
+
+    this.setState({
+      month: previousMonth
     });
   }
 

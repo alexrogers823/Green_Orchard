@@ -45,6 +45,13 @@ html {
     filter: invert(30%);
 }
 
+.container {
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 3s; /* Opera */
+}
+
 /* --------------------------------------------------------- */
 /* Media Queries */
 /* --------------------------------------------------------- */
@@ -58,5 +65,44 @@ html {
 
     .Header {
         text-align: center;
+    }
+}
+
+/* -------------------------------------------------- */
+/* CSS Transitions */
+/* -------------------------------------------------- */
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
+    }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
+    }
+}
+
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
     }
 }
