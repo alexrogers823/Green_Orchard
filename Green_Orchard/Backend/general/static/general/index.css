@@ -17,15 +17,6 @@ body {
     -o-animation: fadein 4s; /* Opera */
 }
 
-@-webkit-keyframes fadein { /* Safari and Chrome */
-    from {
-        opacity:0;
-    }
-    to {
-        opacity:1;
-    }
-}
-
 .LoginBox {
     position: absolute;
     top: 1rem;
@@ -36,6 +27,10 @@ body {
     width: 20rem;
     text-align: center;
     opacity: .88;
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 3s; /* Opera */
 }
 
 .LoginBox h3 {
@@ -61,6 +56,10 @@ body {
     margin: auto;
     text-align: center;
     opacity: .8;
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 3s; /* Opera */
 }
 
 .Quotes {
@@ -75,6 +74,10 @@ body {
     /* margin-left: 40%; */
     margin: auto;
     opacity: .8;
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 3s; /* Opera */
 }
 
 .GrowYourOrchard {
@@ -84,6 +87,10 @@ body {
     margin: auto;
     font-size: 150%;
     text-align: center;
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 3s; /* Opera */
 }
 
 .GrowYourOrchard h2 {
@@ -114,5 +121,44 @@ h2 a:hover {
     .AboutGreenOrchard {
         position: relative;
         margin: auto;
+    }
+}
+
+/* --------------------------------------------------------- */
+/* CSS Transitions */
+/* --------------------------------------------------------- */
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
     }
 }
