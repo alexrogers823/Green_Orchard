@@ -149,8 +149,8 @@ h1{
         -o-background-size: cover;
         background-size: cover;
         overflow: hidden;
-
-
+    }
+}
 
 
 
@@ -226,17 +226,6 @@ h1{
     }
     to {
         opacity: 0.88;
-    .instructions{
-        font-size: 13px;
-        display: flex;
-        flex-direction: column;
-        width: 80%;
-        margin-top: 1em;
-        color: white;
-        justify-items: center;
     }
-    .Wrapper{
-        display: flex;
-        flex-direction: column-reverse;
-    }
+    
 }
