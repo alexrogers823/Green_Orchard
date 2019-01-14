@@ -26,7 +26,7 @@
 
           <h1 class="SignUp-header">Sign Up</h1>
 
-          <form action ="" class="SignUp-container">
+          <!-- <form action ="" class="SignUp-container">
             <p><input type="text" name="firstname" placeholder="First Name"></p>
             <p><input type="text" name="lastname" placeholder="Last Name"></p>
             <p><input type="text" name="email" placeholder="Email Address"></p>
@@ -38,6 +38,14 @@
           </div>
             <p><input type="text" name="password" placeholder="Password"></p>
             <p><input type="text" name="password2" placeholder="Confirm Password"></p>
+            <p><input type="submit" value="Start Your Orchard"></p>
+          </form> -->
+
+          <form method="POST">
+            {% csrf_token %}
+            <fieldset>
+              {{ form.as_p }}
+            </fieldset>
             <p><input type="submit" value="Start Your Orchard"></p>
           </form>
           </div>

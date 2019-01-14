@@ -4,10 +4,10 @@ from django.contrib.auth import (
     authenticate,
     login as user_login,
     logout as user_logout )
-from django.contrib.auth.forms import AuthenticationForm
+# from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .forms import UserRegisterForm
+from .forms import UserRegisterForm, UserLoginForm
 from mysite.csv_import import upload_files
 
 # Create your views here.
@@ -23,11 +23,11 @@ def index(request):
     # return render(request, 'users/dummy.html')
 
 def login(request):
-    if User.is_authenticated:
-        return redirect('users:main_profile')
+    # if User.is_authenticated:
+    #     return redirect('users:main_profile')
 
     if request.method == 'POST':
-        form = AuthenticationForm(User, request.POST)
+        form = UserLoginForm(User, request.POST)
 
         if form.is_valid():
             form.clean()
@@ -37,7 +37,7 @@ def login(request):
             user_login(request, user)
             return redirect('users:main_profile')
     else:
-        form = AuthenticationForm()
+        form = UserLoginForm()
     context = {
         'css_file': 'users/stylelogin.css',
         'form': form
@@ -50,14 +50,15 @@ def logout(request):
     return redirect('login')
 
 def register(request):
-    if User.is_authenticated:
-        messages.warning(request, f'You are already logged in. Redirected to profile')
-        return redirect('users:main_profile')
+    # if User.is_authenticated:
+    #     messages.warning(request, f'You are already logged in. Redirected to profile')
+    #     return redirect('users:main_profile')
 
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         form.save() # Also hashes password for security
         if form.is_valid():
+            upload_files(['Discover'], request.user.pk)
             username = form.cleaned_data.get('username')
             messages.success(request, f'{username} has successfully registered!')
             return redirect('users:main_profile')

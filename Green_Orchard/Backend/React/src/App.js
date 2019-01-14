@@ -81,7 +81,7 @@ const CnbcNews = this.state.news.map(cnbcnews =>{
             <ul>
                 <li>{ListOfExpenses}</li>
                 
-        
+          
             </ul>
         </div>
 
