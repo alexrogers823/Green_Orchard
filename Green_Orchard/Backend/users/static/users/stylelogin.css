@@ -1,4 +1,3 @@
-
 *,
 *:before,
 *:after {
@@ -11,6 +10,13 @@ body {
     background-size: cover;
     background-color: black;
     font-family: 'Dosis', sans-serif;
+}
+
+.container {
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome  */
+    -o-animation: fadein 3s; /* Opera */
 }
 
 
@@ -125,14 +131,6 @@ h1 {
         position: center;
         box-shadow: 1px 1px 50px #000;
     }
-
-    .container {
-        animation: fadein 3s;
-        -moz-animation: fadein 3s; /* Firefox */
-        -webkit-animation: fadein 3s; /* Safari and Chrome  */
-        -o-animation: fadein 3s; /* Opera */
-    }
-
 }
 
 /* -------------------------------------------------- */
