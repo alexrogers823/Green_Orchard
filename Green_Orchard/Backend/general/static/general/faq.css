@@ -1,5 +1,3 @@
-
-
 body {
     font-family: 'Dosis', sans-serif;
     background-image: url("https://images.pexels.com/photos/1353938/pexels-photo-1353938.jpeg?cs=srgb&dl=branch-bright-freshness-1353938.jpg&fm=jpg");
@@ -9,6 +7,7 @@ body {
 .Header {
     border-bottom: 1px solid black;
     text-shadow: 1px 1px 1px black;
+    font-size: 100%;
 }
 
 ul {
@@ -22,25 +21,34 @@ li {
 
 h2 {
     text-align: center;
+    padding: 1%;
+}
+
+h3 {
+    padding: 1%;
 }
 
 h4 {
     font-weight: 800;
+    padding: 1%;
+}
+
+p {
+    padding: 1%;
 }
 
 .QuestionNav {
     text-align: center;
-    text-shadow: 2px 2px 2px black;
 }
 
 .QuestionNav a {
     font-weight: bold;
-    color: white;
-    text-shadow: 1px 2px 1px black;
+    color: black;
+    /* text-shadow: 1px 2px 1px black; */
 }
 
 .Questions {
-    text-shadow: 2px 2px 1px black;
+    /* text-shadow: 2px 2px 1px black; */
 }
 
 .QuestionCategory {
@@ -51,4 +59,71 @@ h4 {
 .EmailLink {
     border: 3px outset #16ca16;
     text-align: center;
+}
+
+.container {
+    font-size: 125%;
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome */
+    -o-animation: fadein 3s; /* Opera */
+}
+
+/* --------------------------------------------------------- */
+/* Media Queries */
+/* --------------------------------------------------------- */
+
+@media screen and (min-width: 0px) and (max-width: 609px) {
+    ul {
+        white-space: normal;
+        /* margin-left: 1rem; */
+        margin-right: 2rem;
+    }
+
+    h1 {
+        text-align: center;
+    }
+
+    h3, h4, p {
+        padding: 2%;
+    }
+}
+
+/* -------------------------------------------------- */
+/* CSS Transitions */
+/* -------------------------------------------------- */
+
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
+    }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
+    }
+}
+
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
+    }
 }

@@ -28,15 +28,15 @@ dev_info = [
     },
     {
         'name': 'Will Harris',
-        'github': '',
-        'linkedin': '',
-        'bio': ''
+        'github': 'https://github.com/harriswill22',
+        'linkedin': 'www.linkedin.com/in/william-harris-648ab9171',
+        'bio': 'Will is a Software Developer who was first learned programming in a Java course in college. He graduated from Georgia SouthernS University  with a major in Computer Information Systems. He was introduced to the tech industry through his mom who was an Energy leader in the Obama Presidency. William has a deep passion for coding and helping others, he will continue growing his skills and love for programming. One day he hopes to give back to his community by teaching under privilege kids the language of code. On his free time he loves to push himself physically and mentally by working out and researching how the universe works.  '
     },
     {
         'name': 'Sam Erickson',
         'github': 'https://github.com/samerickson95/',
         'linkedin': 'https://www.linkedin.com/in/sam-erickson-82b641163/',
-        'bio': ''
+        'bio': 'Sam is a web developer who was brand new to the world of coding prior to attending DigitalCrafts in Atlanta. He graduated from the University of South Carolina in 2017 with a Bachelor\'s in Psychology, and not long after graduating he decided to dive into software development to grow his skillset. Sam is particularly interested in front-end web development and webpage design, especially using ReactJS. He is seeking a full-time developer role in the tech industry in the coming months as he continues to hone his craft. Outside of coding, Sam is passionate about listening to and writing music on his guitar and bass, using a slow-cooker, and driving on backroads to avoid traffic.'
     },
 ]
 

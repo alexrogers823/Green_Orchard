@@ -1,4 +1,3 @@
-
 *,
 *:before,
 *:after {
@@ -11,6 +10,13 @@ body {
     background-size: cover;
     background-color: black;
     font-family: 'Dosis', sans-serif;
+}
+
+.container {
+    animation: fadein 3s;
+    -moz-animation: fadein 3s; /* Firefox */
+    -webkit-animation: fadein 3s; /* Safari and Chrome  */
+    -o-animation: fadein 3s; /* Opera */
 }
 
 
@@ -109,7 +115,7 @@ h1 {
 
 @media screen and (max-width: 768px) {
     body {
-        font-family: 'Open Sans', sans-serif;
+        /* font-family: 'Open Sans', sans-serif; */
         background: url(https://images.pexels.com/photos/460621/pexels-photo-460621.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940) no-repeat center center fixed;
         background-position: center;
         margin: 6em 2em;
@@ -123,8 +129,45 @@ h1 {
         font-size: 16px;
         background: rgb(0, 0, 0);
         position: center;
-        box-shadow: 1px 1px 50px #000
+        box-shadow: 1px 1px 50px #000;
     }
+}
 
+/* -------------------------------------------------- */
+/* CSS Transitions */
+/* -------------------------------------------------- */
 
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
+    }
+}
+@-moz-keyframes fadein { /* Firefox */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
+    }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
+    }
+}
+
+@-o-keyframes fadein { /* Opera */
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.88;
+    }
 }

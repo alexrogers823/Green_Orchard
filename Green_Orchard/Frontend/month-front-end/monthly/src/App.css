@@ -146,7 +146,7 @@ td {
 
 .Pagination {
   text-align: center;
-  font-size: 500%;
+  font-size: 300%;
   display: inline;
   color: black;
   /* text-shadow: 3px 3px 3px white; */
@@ -156,4 +156,50 @@ td {
   font-family: 'Dosis', sans-serif;
   text-shadow: 2px 2px 2px white;
   font-size: 50%;
+}
+
+.container {
+  animation: fadein 3s;
+  -moz-animation: fadein 3s; /* Firefox */
+  -webkit-animation: fadein 3s; /* Safari and Chrome */
+  -o-animation: fadein 3s; /* Opera */
+}
+
+/* -------------------------------------------------- */
+/* CSS Transitions */
+/* -------------------------------------------------- */
+
+@keyframes fadein {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 0.88;
+  }
+}
+@-moz-keyframes fadein { /* Firefox */
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 0.88;
+  }
+}
+
+@-webkit-keyframes fadein { /* Safari and Chrome */
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 0.88;
+  }
+}
+
+@-o-keyframes fadein { /* Opera */
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 0.88;
+  }
 }

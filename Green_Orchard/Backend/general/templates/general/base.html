@@ -20,8 +20,12 @@
         <div class="inner">
             <div class="logo">Green Orchard</div>
             <i class="fas fa-tree"></i>
+        </div>
           {% if user.is_authenticated %}
             <nav role='navigation'>
+                    <div class="toggle">
+                            <i class="fas fa-bars menu"></i>
+                        </div>
                 <ul class="navLeft">
                         <li><a href="{% url 'users:main_profile' %}">{{ user.username }}</a></li>
                         <li><a href="{% url 'logout' %}">Logout</a></li>
@@ -59,7 +63,6 @@
                     </div>
                 </ul>
             </nav>
-        </div>
       </header>
   {% else %}
             <nav role='navigation'>
@@ -86,16 +89,37 @@
         <p>© 2019 Green Orchard</p>
     </div>
     <div class="OurInfo">
-        <p>Alex Rogers</p>
-        <a href="https://github.com/alexrogers823"><i class="fab fa-github-square fa-lg"></i></a>
-        <a href="https://www.linkedin.com/in/alexrogers823/"><i class="fab fa-linkedin fa-lg"></i></a>
-        <p>Will Harris</p>
-        <a href="https://github.com/harriswill22"><i class="fab fa-github-square fa-lg"></i></a>
-        <a href="https://www.linkedin.com/in/william-harris-648ab9171/"><i class="fab fa-linkedin fa-lg"></i></a>
-        <p>Sam Erickson</p>
-        <a href="https://github.com/samerickson95"><i class="fab fa-github-square fa-lg"></i></a>
-        <a href="https://www.linkedin.com/in/sam-erickson-82b641163/"><i class="fab fa-linkedin fa-lg"></i></a>
+
+        <p>
+            Alex Rogers
+            <a href="https://github.com/alexrogers823"><i class="fab fa-github-square fa-lg"></i></a>
+            <a href="https://www.linkedin.com/in/alexrogers823/"><i class="fab fa-linkedin fa-lg"></i></a>
+        </p>
+
+        <p>
+            Will Harris
+            <a href="https://github.com/harriswill22"><i class="fab fa-github-square fa-lg"></i></a>
+            <a href="https://www.linkedin.com/in/william-harris-648ab9171/"><i class="fab fa-linkedin fa-lg"></i></a>
+        </p>
+
+        <p>
+            Sam Erickson
+            <a href="https://github.com/samerickson95"><i class="fab fa-github-square fa-lg"></i></a>
+            <a href="https://www.linkedin.com/in/sam-erickson-82b641163/"><i class="fab fa-linkedin fa-lg"></i></a>
+        </p>
+        
     </div>
   </footer>
+  <script
+src="https://code.jquery.com/jquery-3.3.1.js"></script> 
+<script type="text/javascript">
+    $(document).ready(function() {  
+        $('.menu').click(function() {
+            $('ul').toggleClass('active')
+        })
+    })
+</script>
+
 </body>
+
 </html>
