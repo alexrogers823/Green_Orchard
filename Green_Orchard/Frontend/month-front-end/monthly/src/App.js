@@ -46,6 +46,9 @@ class App extends Component {
     // const monthData = data;
     // console.log(monthData);
     // const monthName = this.monthNames[monthData.Month];
+
+    // console.log(data);
+
     const finalData = [];
     for (let i=1; i<42; i++) {
       finalData.push(data[`${i}`].Expense)
