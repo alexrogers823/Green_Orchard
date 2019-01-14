@@ -187,7 +187,6 @@ h1{
         flex-direction: row;
         
     }
-<<<<<<< HEAD
 
 }
 
@@ -227,7 +226,6 @@ h1{
     }
     to {
         opacity: 0.88;
-=======
     .instructions{
         font-size: 13px;
         display: flex;
@@ -240,6 +238,5 @@ h1{
     .Wrapper{
         display: flex;
         flex-direction: column-reverse;
->>>>>>> a32e5de171a082350d51def1064f18d8b5a8ef0b
     }
 }
