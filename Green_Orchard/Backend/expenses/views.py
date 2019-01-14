@@ -20,6 +20,7 @@ def summary(request):
     context = {
         'css_file': 'expenses/summary.css',
         'name': 'George',
+        'top_5_exp': Expenses.objects.all().order_by('-amount')[:5],
     }
     return render(request, 'expenses/summary.html', context)
 
