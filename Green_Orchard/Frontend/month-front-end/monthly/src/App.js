@@ -44,6 +44,13 @@ class App extends Component {
   }
 
   async componentDidMount() {
+    // fetch('/expenses/month/')
+    //   .then(r => r.json())
+    //   .then(({expenses}) => {
+    //     this.setState({
+    //       expenses,
+    //     })
+    //   })
     const data = await fetch('https://raw.githubusercontent.com/alexrogers823/Green_Orchard/staging/Green_Orchard/Frontend/sample_data.json').then(r => r.json());
     // const categoricalData = await fetch('https://raw.githubusercontent.com/alexrogers823/interactiveBarGraph/master/CategoryWords.json').then(r => r.json());
     // const monthData = data;
@@ -60,7 +67,7 @@ class App extends Component {
     this.setState({
       month: '10',
       expenses: finalData,
-      // pieData: 
+      // pieData:
       categories: [...new Set(finalData.map(category => category[4]))],
       // categoricalData: categoricalData.Keywords,
     })
@@ -79,28 +86,28 @@ class App extends Component {
 
           <div className="CurrentMonthAndTopThree">
             <CurrentMonth title={this.state.month} />
-            <TopThree 
-              month={this.state.month} 
+            <TopThree
+              month={this.state.month}
               expenses={this.state.expenses}
             />
           </div>
 
           <div className="PieChart">
-            <MonthPieChart 
-              labels={this.state.categories} 
-              // categoricalData={this.state.categoricalData} 
-              expenses={this.state.expenses} 
+            <MonthPieChart
+              labels={this.state.categories}
+              // categoricalData={this.state.categoricalData}
+              expenses={this.state.expenses}
             />
           </div>
 
           <div className="AddBarAndExpenseTable">
             <AddBar
-              onClick={this._handleClick} 
+              onClick={this._handleClick}
               month={this.state.month}
               handleSubmit={this._addExpense}
             />
-            <ExpenseTable 
-              month={this.state.month} 
+            <ExpenseTable
+              month={this.state.month}
               expenses={this.state.expenses}
             />
           </div>
@@ -108,7 +115,7 @@ class App extends Component {
         </div>
 
         <div className="Pagination">
-          <PageButtons 
+          <PageButtons
             handleIncrease={this._increaseMonth}
             handleDecrease={this._decreaseMonth}
           />
