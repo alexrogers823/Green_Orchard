@@ -42,7 +42,7 @@ i {
 /* Media Queries - Footer */
 /* --------------------------------------------------------- */
 
-@media screen and (min-width: 0px) and (max-width: 1276px) {
+@media screen and (min-width: 320px) {
     .OurInfo p {
         display: flex;
         margin-left: 1%;
