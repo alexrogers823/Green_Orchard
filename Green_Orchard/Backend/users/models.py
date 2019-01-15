@@ -11,6 +11,9 @@ class UserProfile(models.Model):
     def __str__(self):
         return f'{self.user.username} Profile'
 
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+
     # def make_gravatar(self):
     #     if self.email:
     #         email = self.email

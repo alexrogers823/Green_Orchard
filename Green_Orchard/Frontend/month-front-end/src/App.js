@@ -1,171 +1,143 @@
 import React, { Component } from 'react';
 import './App.css';
-import CurrentMonth from './CurrentMonth';
-import TopThree from './Top3Expenses';
-import MonthPieChart from './PieChart';
-import AddBar from './AddBar';
-import ExpenseTable from './ExpenseTable';
-import PageButtons from './Pagination';
+import config from './config';
+// import CreateBarChart from './bar-chart-example';
+import { BarChart } from 'react-d3-components';
+const NEWSAPIKEY = config.NEWSAPIKEY;
+console.log(NEWSAPIKEY);
+
+
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.monthNames = {
-      "1": "January",
-      "2": "February",
-      "3": "March",
-      "4": "April",
-      "5": "May",
-      "6": "June",
-      "7": "July",
-      "8": "August",
-      "9": "September",
-      "10": "October",
-      "11": "November",
-      "12": "December"
+    state = {
+    expenses: [
+        // {"Expense":"mail","Cost":5.75,"Category":"Transport","Notes":"idk","Date":"Dec 12"},
+        // {"Expense":"chipotle","Cost":6.97,"Category":"Res","Notes":"burrito bowl","Date":"Dec 12"},
+        // {"Expense":"rent","Cost":800,"Category":"Rent","Notes":"clairmont reserve,","Date":"Dec 12"}
+],
+
+news: [
+    {}
+]
+
     }
 
-    this.state = {
-        month: '',
-        expenses: [],
-        // for level 2
-        pieData: [],
-        // -----------
-        categories: [],
-        categoricalData: [],
+
+
+    componentDidMount(){
+      fetch('/expenses/summary/')
+        .then(r => r.json())
+        .then(({expenses}) => {
+          this.setState({
+            expenses,
+          })
+        })
+
+        this.updateList();
+        setInterval(this.updateList,1000);
+    }
+    updateList =() =>{
+        fetch(`https://newsapi.org/v2/top-headlines?sources=cnbc&apiKey=${NEWSAPIKEY}`)
+        .then(r => r.json())
+        .then(cnbc =>{
+            this.setState({
+                news: cnbc.articles
+            });
+
+        })
     }
 
-    this._handleClick = this._handleClick.bind(this);
-  }
-
-  _handleClick(e) {
-    e.preventDefault();
-    console.dir(e);
-  }
-
-  async componentDidMount() {
-    // fetch('/expenses/month/')
-    //   .then(r => r.json())
-    //   .then(({expenses}) => {
-    //     this.setState({
-    //       expenses,
-    //     })
-    //   })
-    const data = await fetch('https://raw.githubusercontent.com/alexrogers823/Green_Orchard/staging/Green_Orchard/Frontend/sample_data.json').then(r => r.json());
-    // const categoricalData = await fetch('https://raw.githubusercontent.com/alexrogers823/interactiveBarGraph/master/CategoryWords.json').then(r => r.json());
-    // const monthData = data;
-    // console.log(monthData);
-    // const monthName = this.monthNames[monthData.Month];
-
-    // console.log(data);
-
-    const finalData = [];
-    for (let i=1; i<42; i++) {
-      finalData.push(data[`${i}`].Expense)
-    };
-
-    this.setState({
-      month: '10',
-      expenses: finalData,
-      // pieData:
-      categories: [...new Set(finalData.map(category => category[4]))],
-      // categoricalData: categoricalData.Keywords,
-    })
-  }
-
-  render() {
-    // console.log(this.state.expenses);
-    return (
-      <div className="container">
-
-        <div className="Header">
-          <header>Green Orchard</header>
+    render() {
+const ListOfExpenses = this.state.expenses.map(expense =>{
+    return(
+        <div>
+        <ul>
+        <li>Date: {expense.Date}</li>
+        <li>Expense:{expense.Expense}</li>
+        <li>Cost: {expense.Cost}</li>
+        </ul>
         </div>
+    )
+})
 
-        <div className="App">
+const CnbcNews = this.state.news.map(cnbcnews =>{
+    return(
+        <div>
+        <ul>
+            <li>
+            <p>{cnbcnews.publishedAt}</p>
+            <a target="_blank" href={cnbcnews.url}>{cnbcnews.title}</a>
+            </li>
 
-          <div className="CurrentMonthAndTopThree">
-            <CurrentMonth title={this.state.month} />
-            <TopThree
-              month={this.state.month}
-              expenses={this.state.expenses}
-            />
-          </div>
-
-          <div className="PieChart">
-            <MonthPieChart
-              labels={this.state.categories}
-              // categoricalData={this.state.categoricalData}
-              expenses={this.state.expenses}
-            />
-          </div>
-
-          <div className="AddBarAndExpenseTable">
-            <AddBar
-              onClick={this._handleClick}
-              month={this.state.month}
-              handleSubmit={this._addExpense}
-            />
-            <ExpenseTable
-              month={this.state.month}
-              expenses={this.state.expenses}
-            />
-          </div>
-
+        </ul>
         </div>
+    )
+})
 
-        <div className="Pagination">
-          <PageButtons
-            handleIncrease={this._increaseMonth}
-            handleDecrease={this._decreaseMonth}
-          />
-        </div>
+const CreateBarChart = () => {
+  const SummaryBarChart = BarChart;
+  const data = [{
+    label: 'somethingA',
+    values: [
+      {x: 'Rent', y: 10},
+      {x: 'Utilities', y: 4},
+      {x: 'Groceries', y: 3},
+      {x: 'Supplies', y: 6},
+      {x: 'Apparel', y: 8},
+      {x: 'Education', y: 4},
+      {x: 'Other', y: 3}
+    ]
+  }];
 
-      </div>
-    );
-  }
-
-  _addExpense = (expense) => {
-    this.setState({
-      expenses: [
-        ...this.state.expenses,
-        expense
-      ]
-    });
-  }
-
-  _increaseMonth = () => {
-    // console.log("increasing month");
-    // console.log(this.state.month);
-    let thisMonth = parseInt(this.state.month);
-    let nextMonth;
-    if (thisMonth < 12) {
-      nextMonth = thisMonth + 1;
-    } else if (parseInt(this.state.month) === 12) {
-      nextMonth = 1;
-    }
-
-    this.setState({
-      month: nextMonth
-    });
-  }
-
-  _decreaseMonth = () => {
-    // console.log("decreasing month");
-    // console.log(this.state.month);
-    let thisMonth = parseInt(this.state.month);
-    let previousMonth;
-    if (this.state.month > 1) {
-      previousMonth = thisMonth - 1;
-    } else if (parseInt(this.state.month) === 1) {
-      previousMonth = 12;
-    }
-
-    this.setState({
-      month: previousMonth
-    });
-  }
-
+  return (
+    <SummaryBarChart
+    data={data}
+    width={400}
+    height={400}
+    margin={{top: 10, bottom: 50, left: 50, right: 10}}/>
+  );
 }
 
-export default App;
+
+        return (
+        <div>
+        <div class="WelcomeBack">
+        <h2>Welcome Back {}</h2>
+        <h2>Take a Look at your Orchard</h2>
+    </div>
+
+
+
+    <div class="Top5">
+
+        <div class="all">
+            <h3>All Expenses</h3>
+            <ul>
+                <li>{ListOfExpenses}</li>
+
+            </ul>
+        </div>
+
+        <div class="grouped">
+            <h3>Grouped Expenses</h3>
+            <h1>Bar Chart</h1>
+            <div>{CreateBarChart}</div>
+        </div>
+
+        <div class="News">
+            <h3>News</h3>
+            <div class="CNBC">
+            <ul>
+                <p>{CnbcNews}</p>
+            </ul>
+            </div>
+        </div>
+
+    </div>
+    </div>
+    );
+
+    }
+}
+
+export default App ;
