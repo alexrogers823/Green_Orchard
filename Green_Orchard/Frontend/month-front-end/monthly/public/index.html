@@ -64,5 +64,13 @@
     </script> -->
     <!-- ----------------- -->
 
+    <script>
+      const arcs = document.querySelectorAll(".arc");
+      arcs.forEach(arc => {
+        arc.addEventListener("click", (this) => {
+          return (_pieChartLevel2(this))
+        });
+      });
+    </script>
   </body>
 </html>
