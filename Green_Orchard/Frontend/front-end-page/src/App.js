@@ -22,6 +22,7 @@ news: [
     }
 
 
+
     componentDidMount(){
       fetch('/expenses/month/')
         .then(r => r.json())
@@ -30,6 +31,7 @@ news: [
             expenses,
           })
         })
+
         this.updateList();
         setInterval(this.updateList,1000);
     }
