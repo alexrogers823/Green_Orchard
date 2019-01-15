@@ -28,6 +28,9 @@ class App extends Component {
     this.state = {
         month: '',
         expenses: [],
+        // for level 2
+        pieData: [],
+        // -----------
         categories: [],
         categoricalData: [],
     }
@@ -57,6 +60,7 @@ class App extends Component {
     this.setState({
       month: '10',
       expenses: finalData,
+      // pieData: 
       categories: [...new Set(finalData.map(category => category[4]))],
       // categoricalData: categoricalData.Keywords,
     })

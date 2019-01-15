@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'expenses.apps.ExpensesConfig',
     'users.apps.UsersConfig',
     'general.apps.GeneralConfig',
+    'rest_framework',
     'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
