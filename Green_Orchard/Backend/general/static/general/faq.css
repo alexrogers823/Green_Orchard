@@ -24,13 +24,15 @@ h2 {
     padding: 1%;
 }
 
-h3 {
+.questions h3 {
     padding: 1%;
+    text-decoration: underline;
 }
 
 h4 {
     font-weight: 800;
     padding: 1%;
+    font-size: 150%;
 }
 
 p {

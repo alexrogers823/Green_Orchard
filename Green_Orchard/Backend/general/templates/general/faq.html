@@ -22,7 +22,9 @@
   {% for topic, value in faq_content.items %}
     <h3 class="QuestionCategory" id="{{ topic }}">{{ topic }}</h3>
     {% for inquiry in value %}
-      <h4>{{ inquiry.Question }}</h4>
+      <div class="questions">
+      <h3>{{ inquiry.Question }}</h3>
+      </div>
       <p>{{ inquiry.Answer }}</p>
     {% endfor %}
   {% endfor %}
@@ -30,7 +32,7 @@
 
   <div class="EmailLink">
       <h3>Still have questions?</h3>
-      <p>Email <a href="#">example@greenorchard.com</a> and we will respond within 2 business days.</p>
+      <p>Email <a href="#">admin@greenorchard.com</a> and we will respond within 2 business days.</p>
   </div>
 
 </div>
