@@ -1,0 +1,12 @@
+{
+  "apps": [
+    {
+      "name": "greenorchard",
+      "cwd": "/home/ubuntu/Green_Orchard/Green_Orchard/Backend",
+      "args": "runserver",
+      "script": "manage.py",
+      "exec_mode": "fork",
+      "exec_interpreter": "/home/ubuntu/Green_Orchard/Green_Orchard/venv/bin/python"
+    }
+  ]
+}
