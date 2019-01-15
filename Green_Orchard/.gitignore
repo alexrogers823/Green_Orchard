@@ -10,7 +10,6 @@ venv/*.pyc
 /coverage
 
 # production
-/build
 
 # misc
 .DS_Store
