@@ -54,6 +54,14 @@ def month(request):
 #         context['total'] = model.objects.filter(month='<str:month>').aggregate(Sum('amount'))
 #         return context
 
+class Summary(APIView):
+    def get(self, request):
+        context = {
+            'expenses': ExpensesSerializer(Expenses.objects.all().order_by('date_posted'), many=True).data
+        }
+
+        return Response(context)
+
 class Month(APIView):
     def get(self, request):
         month_names = ['January', 'February', 'March', 'April',
