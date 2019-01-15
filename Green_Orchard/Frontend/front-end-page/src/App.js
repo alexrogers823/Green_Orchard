@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import config from './config';
+import CreateBarChart from './bar-chart-example';
 const NEWSAPIKEY = config.NEWSAPIKEY;
 console.log(NEWSAPIKEY);
 
@@ -23,7 +24,7 @@ news: [
 
 
     componentDidMount(){
-      fetch('/expenses/month/')
+      fetch('/expenses/summary/')
         .then(r => r.json())
         .then(({expenses}) => {
           this.setState({
@@ -94,6 +95,7 @@ const CnbcNews = this.state.news.map(cnbcnews =>{
         <div class="grouped">
             <h3>Grouped Expenses</h3>
             <h1>Bar Chart</h1>
+            <CreateBarChart />
         </div>
 
         <div class="News">
