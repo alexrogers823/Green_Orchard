@@ -1,222 +1,263 @@
-html,body{
-    width: 100%;
-    height: 100%;
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  padding-top: 0.2em;
+  background: rgb(18, 19, 18);
+  transition: 0.7s all;
+  background-size: cover;
+  z-index: 100;
+}
+
+header.alt-header {
+  background: #fff;
+}
+
+body.header-fixed header {
+  top: 0;
+  right: 0;
+  padding-top: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  padding: 5px;
+  transition: 0.3s all;
+}
+
+nav {
+  overflow: hidden;
+  padding: 1em;
 }
 
 
-header {
-    width: 100%;
-    padding-top: 0.2em;
-    background: rgb(18, 19, 18);
-    transition: 0.7s all;
-    background-size: contain;
-    z-index: 100;
-  }
-  header.alt-header {
-    background: #fff;
-  }
-  body.header-fixed header {
-    top: 0;
-    right: 0;
-    padding-top: 0;
-    width: 100%;
-    z-index: 2;
-  }
-  li {
-    list-style: none;
-    display: inline-block;
-    color: #fff;
-    text-decoration: none;
-    padding: 5px;
-    transition: 0.3s all;
-  }
+.navs-show {
+  display: flex;
+  flex-direction: column;
+  display: block
+}
+
+.navRight {
+  display: flex;
+  float: right;
+
+  margin-right: 3em;
+  position: relative;
+
+
+}
+
+.navRight li {
+  float: left;
+
+}
+
+.navLeft {
+  display: flex;
+  float: left;
+
+}
+
+.navLeft li {
+  float: right;
+}
+
+nav a {
+  display: inline-block;
+  color: #fff;
+  text-decoration: none;
+  transition: 0.3s all;
+
+
+}
+
+.navRight button {
+  display: inline-block;
+  color: black;
+  text-decoration: none;
+  transition: 0.3s all;
+
+
+}
+
+nav a:hover {
+  background: #16ca16;
+}
+
+.logo {
+  float: left;
+  color: rgb(243, 241, 241);
+  font-size: 50px;
+  line-height: 50px;
+  transition: 0.7s all;
+  margin-left: 0.2em
+}
+
+.alt-header .logo {
+  color: rgba(0, 0, 0, 0.1);
+}
+
+.inner i {
+  font-size: 1.3em;
+  color: #16ca16;
+  position: absolute;
+  top: 0.8em;
+  left: 6.7em;
+
+}
+
+.inner {
+  position: relative;
+}
+
+.inner p {
+  color: #fff;
+  position: absolute;
+  bottom: 0.7em;
+  left: 20em;
+  color: #16ca16;
+  font-size: 2em;
+}
+
+.dropDown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  width: 5em;
+  box-shadow: 0px 8px 16px 2px #16ca16;
+  z-index: 10;
+  overflow: scroll;
+  max-height: 5em;
+}
+
+.dropDown-content a {
+  margin: 2em;
+  color: black;
+  font-size: 8px;
+  padding: 1px 1px;
+  text-decoration: none;
+  display: block;
+  overflow: scroll;
+}
+
+.username a {
+  color: #16ca16
+}
+
+.dropDown-content a:hover {
+  cursor: pointer;
+}
+
+.dropDown-content a:hover {
+  background-color: #ddd;
+}
+
+.Months:hover .dropDown-content {
+  display: block;
+}
+
+.Months:hover .Months-btn {
+  background-color: #16ca16;
+}
+
+.dropDown-content a:hover {
+  background-color: #ddd;
+}
+
+.Other:hover .dropDown-content {
+  display: block;
+}
+
+.Other:hover .Other-btn {
+  background-color: #3e8e41;
+}
+
+a.disabled {
+  pointer-events: none
+}
+
+.toggle {
+  width: 100%;
+  padding: 10px 20px;
+  text-align: left;
+  box-sizing: border-box;
+  display: none;
+
+}
+
+@media screen and (max-width: 821px) {
+
   nav {
-    overflow: hidden;
-    padding: 1em;
-  }
-  .navRight{
     display: flex;
-    float: right;
-
-    margin-right: 3em;
-    position: relative;
-
-
-  }
-  .navRight li{
-    float: left;
-
-  }
-
-  .navLeft {
-    display: flex;
-    float: left;
-
-  }
-
-  .navLeft li {
-    float: right;
-  }
-
-  nav a {
-    display: inline-block;
-    color: #fff;
-    text-decoration: none;
-    transition: 0.3s all;
-
-
-  }
-
-  .navRight button {
-    display: inline-block;
-    color: black;
-    text-decoration: none;
-    transition: 0.3s all;
-
-
-  }
-
-  nav a:hover {
-    background: #16ca16;
+    flex-direction: row;
+    font-size: 1em;
   }
 
   .logo {
-    float: left;
-    color: rgb(243, 241, 241);
-    font-size: 50px;
-    line-height: 50px;
-    transition: 0.7s all;
-    margin-left: 0.2em
+    font-size: 20px;
   }
 
-  .alt-header .logo {
-    color:rgba(0, 0, 0, 0.1);
-  }
   .inner i {
-      font-size: 1.3em;
-      color: #16ca16;
-      position: absolute;
-      top: 0.8em;
-      left: 6.7em;
-
-  }
-  .inner{
-    position: relative;
-  }
-  .inner p{
-      color: #fff;
-      position: absolute;
-      bottom: 0.7em;
-      left: 20em;
-      color: #16ca16;
-      font-size: 2em;
-  }
-
-  .dropDown-content {
-    display: none;
+    font-size: .5em;
+    color: #16ca16;
     position: absolute;
-    background-color: #f1f1f1;
-    width: 5em;
-    box-shadow: 0px 8px 16px 2px #16ca16;
-    z-index: 10;
-    overflow: scroll;
-    max-height: 3em;
-  }
-  .dropDown-content a {
-    margin: 1em;
-    color: black;
-    font-size: 8px;
-    padding: 1px 1px;
-    text-decoration: none;
-    display: block;
-    overflow: scroll;
-  }
-  .username a{
-    color: #16ca16
-  }
-  .dropDown-content a:hover{
-    cursor: pointer;
-  }
-
-  .dropDown-content a:hover {background-color: #ddd;}
-  .Months:hover .dropDown-content {display: block;}
-  .Months:hover .Months-btn {background-color: #16ca16;}
-
-  .dropDown-content a:hover {background-color: #ddd;}
-  .Other:hover .dropDown-content {display: block;}
-  .Other:hover .Other-btn {background-color: #3e8e41;}
-
-  a.disabled {
-    pointer-events: none
-  }
-  
-  .toggle {
-    width: 100%;
-    padding: 10px 20px;
-  
-    text-align: left;
-    box-sizing: border-box;
-    display: none;
+    top: 2.7em;
+    left: 7em;
 
   }
 
-  @media screen and (max-width: 821px) {
+}
 
-    nav {
-      display: flex;
-      flex-direction: row;
-      font-size: 1em;
-    }
+@media screen and (max-width: 767px) {
 
-    .logo {
-      font-size: 20px;
-    }
-
-    .inner i {
-      font-size: .5em;
-      color: #16ca16;
-      position: absolute;
-      top: 2.7em;
-      left: 7em;
-
-  }
+  nav {
+    display: flex;
+    flex-direction: column;
+    font-size: 10px;
   }
 
-  @media screen and (max-width: 767px) {
+  .inner {
+    display: flex;
+    flex-direction: row;
+  }
 
-    nav {
-      display: flex;
-      flex-direction: column; 
-      
-  
-    }
-    .inner{
-      display: flex;
-      flex-direction: row;
-    }
-    .logo {
-      font-size: 20px;
-    }
+  .logo {
+    font-size: 20px;
+  }
 
-  .navRight{
+  .navRight {
     display: flex;
     flex-direction: column;
     position: relative;
 
   }
-  .navLeft{
-      display:  flex;
-      flex-direction: column;
-      position: relative;
+
+  .navLeft {
+    display: flex;
+    flex-direction: column;
+    position: relative;
   }
- ul {
+
+  ul {
     margin: 0;
     padding: 0;
     width: 100%;
     display: none;
   }
+
   button {
     text-align: center;
+    font-size: 6px;
   }
 
   .toggle {
@@ -227,11 +268,13 @@ header {
     display: block;
   }
 
-
-  .active{
+  .dropDown-content a {
+    margin: 2em;
+    color: black;
+    font-size: 5px;
+    padding: 1px 1px;
+    text-decoration: none;
     display: block;
+    overflow: scroll;
   }
-
-  
-
-  }
+}
