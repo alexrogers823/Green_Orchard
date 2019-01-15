@@ -134,6 +134,16 @@ h1{
     width: 50%;
     margin-top: 8em;
     color: white;
+    text-shadow: 2px 2px 2px black;
+}
+
+.instructions a:link {
+    color: white;
+    text-shadow: 2px 2px 2px black;
+}
+
+.instructions a:hover {
+    color: #16ca16;
 }
 
 @media screen and (max-width: 768px) {
