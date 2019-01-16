@@ -11,15 +11,15 @@ class MonthApp extends Component {
   constructor(props) {
     super(props);
     this.monthNames = {
-      "1": "January",
-      "2": "February",
-      "3": "March",
-      "4": "April",
-      "5": "May",
-      "6": "June",
-      "7": "July",
-      "8": "August",
-      "9": "September",
+      "01": "January",
+      "02": "February",
+      "03": "March",
+      "04": "April",
+      "05": "May",
+      "06": "June",
+      "07": "July",
+      "08": "August",
+      "09": "September",
       "10": "October",
       "11": "November",
       "12": "December"
@@ -43,32 +43,52 @@ class MonthApp extends Component {
     console.dir(e);
   }
 
+  _getCategoryNames(number) {
+    const categoryName = {
+      "1": "Rent",
+      "2": "Utilities",
+      "3": "Automotive",
+      "4": "Fast Food",
+      "5": "Groceries",
+      "6": "Education",
+      "7": "Medical/Health",
+      "8": "Travel",
+      "9": "Student Loans"
+    }
+
+    return categoryName[`${number}`];
+  }
+
   async componentDidMount() {
-    // fetch('/expenses/month/')
-    //   .then(r => r.json())
-    //   .then(({expenses}) => {
-    //     this.setState({
-    //       expenses,
-    //     })
-    //   })
-    const data = await fetch('https://raw.githubusercontent.com/alexrogers823/Green_Orchard/staging/Green_Orchard/Frontend/sample_data.json').then(r => r.json());
+    const data = await fetch('/expenses/month/')
+      .then(r => r.json())
+      .then(({expenses}) => {
+        this.setState({
+          expenses,
+        })
+      })
+
+    let monthNumber = "01";
     // const categoricalData = await fetch('https://raw.githubusercontent.com/alexrogers823/interactiveBarGraph/master/CategoryWords.json').then(r => r.json());
     // const monthData = data;
     // console.log(monthData);
-    // const monthName = this.monthNames[monthData.Month];
+    const monthName = this.monthNames[monthNumber];
+    const categoryName;
 
     // console.log(data);
 
-    const finalData = [];
-    for (let i=1; i<42; i++) {
-      finalData.push(data[`${i}`].Expense)
-    };
-
     this.setState({
-      month: '10',
-      expenses: finalData,
+      month: monthName,
+      expenses: expenses.map(exp => {
+        return ({
+          "month": exp.month,
+          "name": exp.name,
+          "amount": exp.amount,
+          "category": exp.category
+        })
+      ).filter(exp => exp.month === monthNumber),
       // pieData:
-      categories: [...new Set(finalData.map(category => category[4]))],
+      categories: [...new Set([...data].map(exp => _getCategoryNames(exp.category)))], // Fix this in a second
       // categoricalData: categoricalData.Keywords,
     })
   }

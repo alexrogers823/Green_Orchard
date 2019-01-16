@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { PieChart } from 'react-d3-components';
+import { _getCategoryNames } from 'MonthApp';
 
 class MonthPieChart extends Component {
   constructor(props) {
@@ -28,32 +29,32 @@ class MonthPieChart extends Component {
   _populatePieChart() {
     const sections = this.props.labels;
     const labels = sections.map(label => {
-      if (label === "Payment/Credit") {
-        return {x: '0', y: 0};
-      }
+      // if (label === "Payment/Credit") {
+      //   return {x: '0', y: 0};
+      // }
       return {x: label, y: this._sumFromLabel(label)};
     });
 
     this.data.values = labels;
 
-    console.log(this.props.expenses);
+    // console.log(this.props.expenses);
 
   }
 
-  _pieChartLevel2 = (arc) => {
-    const sections = this.props.pieData;
-    const labels = sections.map(label => {
-      return {x: label, y: this._sumFromLabel};
-    });
-
-    console.log(labels);
-
-    
-  }
+  // _pieChartLevel2 = (arc) => {
+  //   const sections = this.props.pieData;
+  //   const labels = sections.map(label => {
+  //     return {x: label, y: this._sumFromLabel};
+  //   });
+  //
+  //   console.log(labels);
+  //
+  //
+  // }
 
   _matchExpenseToCategory(expense, label) {
     // const qualifiedResults = this.props.categoricalData.filter(instance => instance.Category === label)
-    if (expense[4] === label) {
+    if (_getCategoryNames(expense.category) === label) {
       return (expense);
     } else {
       return (undefined);
@@ -69,9 +70,9 @@ class MonthPieChart extends Component {
 
     const filteredExpenses = labelExpenses.filter(instance => instance !== undefined);
 
-    const finalNumber = filteredExpenses.reduce((a, expense) => (a + parseFloat(expense[5])), 0);
-  
-    console.log(finalNumber);
+    const finalNumber = filteredExpenses.reduce((a, expense) => (a + parseFloat(expense.amount)), 0);
+
+    // console.log(finalNumber);
     return finalNumber;
 
   }
