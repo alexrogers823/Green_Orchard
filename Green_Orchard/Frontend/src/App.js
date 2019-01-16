@@ -64,10 +64,12 @@ const CnbcNews = this.state.news.map(cnbcnews =>{
     return(
         <div>
         <ul>
+          <div>
             <li>
-            <p>{cnbcnews.publishedAt}</p>
+            <p>{(new Date(cnbcnews.publishedAt)).toLocaleString()}</p>
             <a target="_blank" href={cnbcnews.url}>{cnbcnews.title}</a>
             </li>
+            </div>
 
         </ul>
         </div>
