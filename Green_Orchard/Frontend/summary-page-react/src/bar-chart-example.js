@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BarChart } from 'react-d3-components';
 
 const CreateBarChart = () => {
+  const SummaryBarChart = BarChart;
   const data = [{
     label: 'somethingA',
     values: [
@@ -16,7 +17,7 @@ const CreateBarChart = () => {
   }];
 
   return (
-    <BarChart
+    <SummaryBarChart
     data={data}
     width={400}
     height={400}

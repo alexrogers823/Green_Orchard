@@ -16,7 +16,8 @@ from mysite.csv_import import upload_files
 def index(request):
     context = {
         'name': 'Alex Rogers',
-        'banks': ['Wells Fargo', 'Discover', 'Capital One', 'Bank of America']
+        'banks': ['Wells Fargo', 'Discover', 'Capital One', 'Bank of America'],
+        'css_file': 'users/user_profile.css',
     }
 
     return render(request, 'users/user_profile.html', context)

@@ -63,11 +63,11 @@ faq_content = {
         },
         {
             'Question': 'How do I edit the content of an expense?',
-            'Answer': '',
+            'Answer': 'In the categories page, you will see a plus sign next to each expense, where you can go in directly and change the attributes of a certain expense.',
         },
         {
             'Question': 'How do I move an expense from one month to another?',
-            'Answer': '',
+            'Answer': 'You can change the month of each expense from the categories page as well.',
         },
         {
             'Question': 'Where is my expense data being stored? Is it safe?',
@@ -140,7 +140,7 @@ faq_content = {
         },
         {
             'Question': 'Do I have to have a bank listed on my profile to add an expense?',
-            'Answer': ''
+            'Answer': 'Technically you don\'t (such as adding a cash expense), but you would have to manually add it yourself. We recommend prioritizing bank expenses for the best user experience'
         }
     ],
     'Development': [
@@ -150,11 +150,11 @@ faq_content = {
         },
         {
             'Question': 'What goes into the front-end?',
-            'Answer': 'ReactJS comprises the core of our front-end. JavaScript is utilized throughout the application. All HTML and CSS was coded by hand; no style frameworks were utilized.',
+            'Answer': 'ReactJS comprises the core of our front-end. All HTML and CSS was coded by hand; no style frameworks were utilized.',
         },
         {
             'Question': 'What goes into the back-end?',
-            'Answer': 'The Python framework Django comprises our back-end.',
+            'Answer': 'Our MVC framework is done in Django, which includes programmed-templating, ORM utilization, and security authorization handled through Django. Our database is used by Postgresql',
         },
         {
             'Question': 'Do you use any extensions or APIs?',

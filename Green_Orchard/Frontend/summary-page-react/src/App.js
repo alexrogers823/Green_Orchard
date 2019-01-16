@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import config from './config';
-import CreateBarChart from './bar-chart-example';
+// import CreateBarChart from './bar-chart-example';
+import { BarChart } from 'react-d3-components';
 const NEWSAPIKEY = config.NEWSAPIKEY;
 console.log(NEWSAPIKEY);
 
@@ -76,6 +76,30 @@ const CnbcNews = this.state.news.map(cnbcnews =>{
     )
 })
 
+const CreateBarChart = () => {
+  const SummaryBarChart = BarChart;
+  const data = [{
+    label: 'somethingA',
+    values: [
+      {x: 'Rent', y: 10},
+      {x: 'Utilities', y: 4},
+      {x: 'Groceries', y: 3},
+      {x: 'Supplies', y: 6},
+      {x: 'Apparel', y: 8},
+      {x: 'Education', y: 4},
+      {x: 'Other', y: 3}
+    ]
+  }];
+
+  return (
+    <SummaryBarChart
+    data={data}
+    width={400}
+    height={400}
+    margin={{top: 10, bottom: 50, left: 50, right: 10}}/>
+  );
+}
+
 
         return (
         <div>
@@ -99,7 +123,7 @@ const CnbcNews = this.state.news.map(cnbcnews =>{
         <div class="grouped">
             <h3>Grouped Expenses</h3>
             <h1>Bar Chart</h1>
-            <CreateBarChart />
+            <div>{CreateBarChart}</div>
         </div>
 
         <div class="News">
