@@ -81,8 +81,7 @@ body {
 
 .News p {
   color: #16ca16;
-  margin-right: 5em;
-  font-size: 9px;
+  font-size: 10px;
   text-decoration: none;
   border: 3px #16ca16;
   text-align: center;
@@ -99,8 +98,21 @@ body {
 .News a:hover{
   color: #16ca16;
 }
-.News ul
+.News li
 {
+  padding: 4px;
+  border: 5px inset #16ca16;
+  margin-bottom: 3em;
   text-decoration: none;
 }
 
+
+@media screen and (max-width: 767px) {
+  
+}
+
+@media screen and (max-width: 400px) {
+  .grouped {
+    display: none;
+  }
+}

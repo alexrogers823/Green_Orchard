@@ -11,7 +11,6 @@ header {
   background: rgb(18, 19, 18);
   transition: 0.7s all;
   background-size: cover;
-  z-index: 100;
 }
 
 header.alt-header {
@@ -218,7 +217,7 @@ a.disabled {
 
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 667px) {
 
   nav {
     display: flex;
@@ -237,14 +236,14 @@ a.disabled {
 
   .navRight {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     position: relative;
 
   }
 
   .navLeft {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     position: relative;
   }
 
@@ -276,5 +275,14 @@ a.disabled {
     text-decoration: none;
     display: block;
     overflow: scroll;
+  }
+
+  .inner i {
+    font-size: .5em;
+    color: #16ca16;
+    position: absolute;
+    top: 2.3em;
+    left: 6.2em;
+
   }
 }

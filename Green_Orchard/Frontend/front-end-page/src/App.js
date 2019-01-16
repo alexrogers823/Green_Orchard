@@ -25,14 +25,13 @@ news: [
 
 
     componentDidMount(){
-      fetch('/expenses/summary/')
-        .then(r => r.json())
-        .then(({expenses}) => {
-          this.setState({
-            expenses,
-          })
-        })
-
+    //   fetch('/expenses/summary')
+    //     .then(r => r.json())
+    //     .then(({expenses}) => {
+    //       this.setState({
+    //         expenses,
+    //       })
+        // })
         this.updateList();
         setInterval(this.updateList,1000);
     }
@@ -48,7 +47,8 @@ news: [
     }
 
     render() {
-const ListOfExpenses = this.state.expenses.map(expense =>{
+// debugger;
+    const ListOfExpenses = this.state.expenses.map(expense =>{
     return(
         <div>
         <ul>
@@ -64,10 +64,12 @@ const CnbcNews = this.state.news.map(cnbcnews =>{
     return(
         <div>
         <ul>
+            <div>
             <li>
-            <p>{cnbcnews.publishedAt}</p>
+            <p>{( new Date(cnbcnews.publishedAt)).toLocaleString()}</p>
             <a target="_blank" href={cnbcnews.url}>{cnbcnews.title}</a>
             </li>
+            </div>
 
         </ul>
         </div>
@@ -87,7 +89,7 @@ const CnbcNews = this.state.news.map(cnbcnews =>{
     <div class="Top5">
 
         <div class="all">
-            <h3>All Expenses</h3>
+            <h3>Top 5 Expenses</h3>
             <ul>
                 <li>{ListOfExpenses}</li>
 
