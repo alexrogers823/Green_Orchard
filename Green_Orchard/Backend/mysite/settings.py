@@ -25,7 +25,7 @@ SECRET_KEY = '4(xaye*k@oj0whde*_bci39gpshvj6*neoe#+@l00q94%lp6m0'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['52.15.198.2']
+ALLOWED_HOSTS = ['52.15.198.2', 'localhost', 'greenorchard.co']
 
 
 # Application definition
